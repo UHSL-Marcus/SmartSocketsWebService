@@ -1,0 +1,10 @@
+<Entry>
+	<TimeStamp> also the key
+	<EntryType>if there are multiple types</EntryType>
+	<Data>
+		<Voltage>
+		<Current>
+		<Power>
+	</Data>
+	<DeviceSignature>The device currently plugged in?</DeviceSignature>
+<Entry>

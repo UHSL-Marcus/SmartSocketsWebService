@@ -1,0 +1,6 @@
+Few different ways: 
+
+* one collection can hold all the data for all the devices, the key is the device ID and value is an array of the historical data
+* one collection per device, timestamped entries are the key/value pairs
+* collection for each month or day or any time period. Each device that updates within that time period has an entry with all the state data
+* a collection for each user or property, or room

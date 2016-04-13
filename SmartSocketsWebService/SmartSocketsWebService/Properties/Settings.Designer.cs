@@ -28,9 +28,20 @@ namespace SmartSockets.Properties {
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ENT-ML15AAF-1\\SQLEXPRESS;Initial Catalog=SmartSocketDB;Integrated Sec" +
             "urity=True;Pooling=False")]
-        public string Database {
+        public string DatabaseStateful {
             get {
-                return ((string)(this["Database"]));
+                return ((string)(this["DatabaseStateful"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=ENT-ML15AAF-1\\SQLEXPRESS;Initial Catalog=SmartSocketsData;Integrated " +
+            "Security=True;Pooling=False")]
+        public string DatabaseData {
+            get {
+                return ((string)(this["DatabaseData"]));
             }
         }
     }

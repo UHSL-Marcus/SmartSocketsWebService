@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
 using System.Reflection;
-using System.Web;
 using System.Web.Services;
-using SmartSockets.Table_Objects;
+
+using MongoDB.Bson;
+using MongoDB.Driver;
+using System.Collections.Generic;
+using SmartSockets.DocumentDB_Objects;
 
 namespace SmartSockets
 {
@@ -20,25 +21,34 @@ namespace SmartSockets
     [System.Web.Script.Services.ScriptService]
     public partial class SmartSocketsService : System.Web.Services.WebService
     {
-        SqlConnection sqlcon = new SqlConnection(Properties.Settings.Default.Database.ToString());
+        SqlConnection sqlConnStateful = new SqlConnection(Properties.Settings.Default.DatabaseStateful.ToString());
 
-        private object getEntryByID(int ID, object ob)
+        protected static IMongoClient _client = new MongoClient();
+        protected static IMongoDatabase _database = _client.GetDatabase("SmartSocketData");
+
+
+
+        
+
+       
+
+        private object SQl_getEntryByID(int ID, object ob)
         {
             string name = ob.GetType().Name;
-            return getData("SELECT * FROM " + name + " WHERE " + name + "ID = '" + ID + "'", ob);
+            return SQL_getData("SELECT * FROM " + name + " WHERE " + name + "ID = '" + ID + "'", ob);
         }
 
-        private object getData(string sql, object ob)
+        private object SQL_getData(string sql, object ob)
         {
             SqlDataAdapter adapter = new SqlDataAdapter();
-            SqlCommand cmd = sqlcon.CreateCommand();
+            SqlCommand cmd = sqlConnStateful.CreateCommand();
             cmd.CommandText = sql;
             adapter.SelectCommand = cmd;
             DataSet dataSet = new DataSet();
 
-            sqlcon.Open();
+            sqlConnStateful.Open();
             adapter.Fill(dataSet);
-            sqlcon.Close();
+            sqlConnStateful.Close();
 
             DataTableReader reader = dataSet.CreateDataReader();
 
@@ -56,23 +66,23 @@ namespace SmartSockets
             
         }
 
-        private bool doNonQuery(string sql)
+        private bool SQL_doNonQuery(string sql)
         {
             bool success = false;
 
-            sqlcon.Open();
-            SqlCommand cmd = new SqlCommand(sql, sqlcon);
+            sqlConnStateful.Open();
+            SqlCommand cmd = new SqlCommand(sql, sqlConnStateful);
 
             if (cmd.ExecuteNonQuery() != 0)
                 success = true;
 
-            sqlcon.Close();
+            sqlConnStateful.Close();
 
             return success;
 
         }
 
-        private bool doSqlInsert(object ob)
+        private bool SQL_doInsert(object ob)
         {
             Type type = ob.GetType();
 
@@ -80,7 +90,7 @@ namespace SmartSockets
             string queryValues = "values(";
 
 
-            System.Reflection.FieldInfo[] fields = type.GetFields();
+            FieldInfo[] fields = type.GetFields();
             for (int i = 0; i < fields.Length; i++)
             {
                 if (!fields[i].Name.Equals(type.Name + "ID"))
@@ -111,7 +121,7 @@ namespace SmartSockets
             queryName += ")";
             queryValues += ")";
 
-            return doNonQuery(queryName + queryValues);
+            return SQL_doNonQuery(queryName + queryValues);
 
         }
 

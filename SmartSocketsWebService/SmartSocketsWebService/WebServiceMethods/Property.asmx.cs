@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿
 using System.Web.Services;
 using SmartSockets.Table_Objects;
 
@@ -14,7 +11,7 @@ namespace SmartSockets
         [WebMethod]
         public bool SetNewProperty(Property property)
         {
-            return doSqlInsert(property);
+            return SQL_doInsert(property);
         }
 
         [WebMethod]
@@ -22,7 +19,7 @@ namespace SmartSockets
         {
             Property property = new Property();
 
-            property = (Property)getEntryByID(ID, property);
+            property = (Property)SQl_getEntryByID(ID, property);
 
             return property;
         }

@@ -13,13 +13,14 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SmartSockets</RootNamespace>
     <AssemblyName>SmartSockets</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,6 +30,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -37,31 +39,54 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MongoDB.Bson, Version=2.2.3.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.2.3\lib\net45\MongoDB.Bson.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.2.3.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.2.3\lib\net45\MongoDB.Driver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.2.3.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.2.3\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver.GridFS, Version=2.2.3.3, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.GridFS.2.2.3\lib\net45\MongoDB.Driver.GridFS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.Extensions" />
-    <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
+    <Content Include="WebServiceMethods\DeviceType.asmx" />
+    <Content Include="WebServiceMethods\MongoDB.asmx" />
     <Content Include="WebServiceMethods\Shared.asmx" />
     <Content Include="WebServiceMethods\Owner.asmx" />
     <Content Include="WebServiceMethods\PaymentLevel.asmx" />
     <Content Include="WebServiceMethods\Property.asmx" />
     <Content Include="WebServiceMethods\Room.asmx" />
-    <Content Include="WebServiceMethods\Socket.asmx" />
+    <Content Include="WebServiceMethods\Device.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DocumentDB_Objects\DataEntry.cs" />
+    <Compile Include="DocumentDB_Objects\Device.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -69,11 +94,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
+    <Compile Include="Table_Objects\DeviceType.cs" />
     <Compile Include="Table_Objects\Owner.cs" />
     <Compile Include="Table_Objects\PaymentLevel.cs" />
     <Compile Include="Table_Objects\Property.cs" />
     <Compile Include="Table_Objects\Room.cs" />
-    <Compile Include="Table_Objects\Socket.cs" />
+    <Compile Include="Table_Objects\Device.cs" />
+    <Compile Include="WebServiceMethods\DeviceType.asmx.cs">
+      <DependentUpon>DeviceType.asmx</DependentUpon>
+    </Compile>
+    <Compile Include="WebServiceMethods\MongoDB.asmx.cs">
+      <DependentUpon>MongoDB.asmx</DependentUpon>
+    </Compile>
     <Compile Include="WebServiceMethods\Shared.asmx.cs">
       <DependentUpon>Shared.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -94,12 +126,13 @@
       <DependentUpon>Room.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="WebServiceMethods\Socket.asmx.cs">
-      <DependentUpon>Socket.asmx</DependentUpon>
+    <Compile Include="WebServiceMethods\Device.asmx.cs">
+      <DependentUpon>Device.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

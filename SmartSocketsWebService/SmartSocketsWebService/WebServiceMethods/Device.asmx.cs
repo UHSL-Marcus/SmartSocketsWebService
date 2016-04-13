@@ -4,24 +4,24 @@ using SmartSockets.Table_Objects;
 
 namespace SmartSockets
 {
-    
+
     public partial class SmartSocketsService : System.Web.Services.WebService
     {
 
         [WebMethod]
-        public bool SetNewOwner(Owner owner)
+        public bool SetNewDevice(Device device)
         {
-            return SQL_doInsert(owner);
+            return SQL_doInsert(device);
         }
 
         [WebMethod]
-        public Owner GetOwner(int ID)
+        public Device GetDevice(int ID)
         {
-            Owner owner = new Owner();
+            Device device = new Device();
 
-            owner = (Owner)SQl_getEntryByID(ID, owner);
+            device = (Device)SQl_getEntryByID(ID, device);
 
-            return owner;
+            return device;
         }
     }
 }

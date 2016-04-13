@@ -1,0 +1,4 @@
+<DeviceEntry>
+	<ID>
+	<EntryCollection>
+<DeviceEntry>

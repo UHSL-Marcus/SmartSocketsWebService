@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿
 using System.Web.Services;
 using SmartSockets.Table_Objects;
 
@@ -14,7 +11,7 @@ namespace SmartSockets
         [WebMethod]
         public bool SetNewRoom(Room room)
         {
-            return doSqlInsert(room);
+            return SQL_doInsert(room);
         }
 
         [WebMethod]
@@ -22,7 +19,7 @@ namespace SmartSockets
         {
             Room room = new Room();
 
-            room = (Room)getEntryByID(ID, room);
+            room = (Room)SQl_getEntryByID(ID, room);
 
             return room;
         }

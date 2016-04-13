@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿
 using System.Web.Services;
 using SmartSockets.Table_Objects;
 
@@ -14,7 +11,7 @@ namespace SmartSockets
         [WebMethod]
         public bool SetNewPaymentLevel(PaymentLevel paymentlevel)
         {
-            return doSqlInsert(paymentlevel);
+            return SQL_doInsert(paymentlevel);
         }
 
         [WebMethod]
@@ -22,7 +19,7 @@ namespace SmartSockets
         {
             PaymentLevel paymentLevel = new PaymentLevel();
 
-            paymentLevel = (PaymentLevel)getEntryByID(ID, paymentLevel);
+            paymentLevel = (PaymentLevel)SQl_getEntryByID(ID, paymentLevel);
 
             return paymentLevel;
         }
