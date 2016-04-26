@@ -1,5 +1,5 @@
 <Entry>
-	<TimeStamp> also the key
+	<TimeStamp> also the key (format-> dd/MM/YYYY-HH:mm:ss )
 	<EntryType>if there are multiple types</EntryType>
 	<Data>
 		<Voltage>

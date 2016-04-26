@@ -69,10 +69,10 @@ namespace SmartSockets
         }
 
 
-        private void MongoDB_InsertDocument(object ob, string collectionName, string id = null)
+        private void MongoDB_InsertDocument<TYPE>(TYPE ob, string collectionName, string id = null)
         {
             var collection = _database.GetCollection<BsonDocument>(collectionName);
-            var document = MongoDB_BuildDocument(ob, id);
+            var document = MongoDB_BuildDocument<TYPE>(ob, id);
             collection.InsertOne(document);
 
         }
@@ -131,9 +131,9 @@ namespace SmartSockets
 
         }
 
-        private BsonDocument MongoDB_BuildDocument(object ob, string id = null)
+        private BsonDocument MongoDB_BuildDocument<TYPE>(TYPE ob, string id = null)
         {
-            Type type = ob.GetType();
+            Type type = typeof(TYPE);
             var document = new BsonDocument();
             if (id != null)
                 document.Add("_id", new BsonString(id));
