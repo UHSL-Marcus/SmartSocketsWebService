@@ -1,10 +1,9 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
+
 
 namespace SmartSocketsWebService
 {
@@ -15,18 +14,19 @@ namespace SmartSocketsWebService
         bool AddDataEntry(DataEntry entry, string deviceID);
 
         [OperationContract]
-        DataEntry GetDataEntry(DateTime TimeStamp, string deviceID);
+        bool GetDataEntry(DateTime TimeStamp, string deviceID, out DataEntry result);
 
         [OperationContract]
-        List<DataEntry> GetAllEntires(string deviceID);
+        bool GetAllDataEntires(string deviceID, out List<DataEntry> result);
 
     }
 
 
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
+    
     [DataContract]
     public class DataEntry
     {
+        [BsonId]
         [DataMember]
         public DateTime TimeStamp;
         [DataMember]
@@ -47,4 +47,5 @@ namespace SmartSocketsWebService
         [DataMember]
         public int Power;
     }
+
 }

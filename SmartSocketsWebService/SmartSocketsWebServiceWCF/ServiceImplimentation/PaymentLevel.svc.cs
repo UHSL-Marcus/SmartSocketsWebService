@@ -17,18 +17,24 @@ namespace SmartSocketsWebService
             return SQL_doInsert(paymentLevel);
         }
 
-        public PaymentLevel GetPaymentLevel(int ID)
+        public bool GetPaymentLevel(int ID, out PaymentLevel result)
         {
+
+            result = null;
             List<PaymentLevel> list = SQl_getEntryByID<PaymentLevel>(ID);
 
-            if (list.Count > 1) return null;
+            if (list.Count != 1) return false;
 
-            return list[0];
+            result = list[0];
+
+            return true;
         }
-
-        public List<PaymentLevel> GetAllPaymentLevels()
+        public bool GetAllPaymentLevels(out List<PaymentLevel> result)
         {
-            return SQL_getAllEntries<PaymentLevel>();
+            result = SQL_getAllEntries<PaymentLevel>();
+
+            if (result.Count > 0) return true;
+            return false;
         }
     }
 }

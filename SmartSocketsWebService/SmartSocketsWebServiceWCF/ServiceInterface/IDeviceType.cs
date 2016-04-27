@@ -15,10 +15,10 @@ namespace SmartSocketsWebService
         bool SetNewDeviceType(DeviceType deviceType);
 
         [OperationContract]
-        DeviceType GetDeviceType(int ID);
+        bool GetDeviceType(int ID, out DeviceType result);
 
         [OperationContract]
-        List<DeviceType> GetAllDeviceTypes();
+        bool GetAllDeviceTypes(out List<DeviceType> result);
     }
 
 

@@ -15,10 +15,10 @@ namespace SmartSocketsWebService
         bool SetNewRoom(Room room);
 
         [OperationContract]
-        Room GetRoom(int ID);
+        bool GetRoom(int ID, out Room result);
 
         [OperationContract]
-        List<Room> GetAllRooms();
+        bool GetAllRooms(out List<Room> result);
     }
 
 

@@ -15,10 +15,10 @@ namespace SmartSocketsWebService
         bool SetNewOwner(Owner owner);
 
         [OperationContract]
-        Owner GetOwner(int ID);
+        bool GetOwner(int ID, out Owner result);
 
         [OperationContract]
-        List<Owner> GetAllOwners();
+        bool GetAllOwners(out List<Owner> result);
     }
 
 

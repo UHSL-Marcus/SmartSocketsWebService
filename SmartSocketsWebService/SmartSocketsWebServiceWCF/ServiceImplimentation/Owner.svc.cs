@@ -17,18 +17,24 @@ namespace SmartSocketsWebService
             return SQL_doInsert(owner);
         }
 
-        public Owner GetOwner(int ID)
+        public bool GetOwner(int ID, out Owner result)
         {
+
+            result = null;
             List<Owner> list = SQl_getEntryByID<Owner>(ID);
 
-            if (list.Count > 1) return null;
+            if (list.Count != 1) return false;
 
-            return list[0];
+            result = list[0];
+
+            return true;
         }
-
-        public List<Owner> GetAllOwners()
+        public bool GetAllOwners(out List<Owner> result)
         {
-            return SQL_getAllEntries<Owner>();
+            result = SQL_getAllEntries<Owner>();
+
+            if (result.Count > 0) return true;
+            return false;
         }
     }
 }

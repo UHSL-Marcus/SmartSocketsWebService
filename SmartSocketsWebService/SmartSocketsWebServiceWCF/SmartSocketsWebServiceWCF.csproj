@@ -80,6 +80,7 @@
     <Content Include="ServiceImplimentation\DeviceType.svc" />
     <Content Include="ServiceImplimentation\PaymentLevel.svc" />
     <Content Include="ServiceImplimentation\Property.svc" />
+    <Content Include="ServiceImplimentation\Start.svc" />
     <Content Include="ServiceImplimentation\Room.svc" />
     <Content Include="ServiceImplimentation\Owner.svc" />
     <Content Include="ServiceImplimentation\MongoDB.svc" />
@@ -111,6 +112,9 @@
     </Compile>
     <Compile Include="ServiceImplimentation\Property.svc.cs">
       <DependentUpon>Property.svc</DependentUpon>
+    </Compile>
+    <Compile Include="ServiceImplimentation\Start.svc.cs">
+      <DependentUpon>Start.svc</DependentUpon>
     </Compile>
     <Compile Include="ServiceImplimentation\Room.svc.cs">
       <DependentUpon>Room.svc</DependentUpon>

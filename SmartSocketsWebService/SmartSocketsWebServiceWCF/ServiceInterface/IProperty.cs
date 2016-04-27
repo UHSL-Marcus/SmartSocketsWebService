@@ -15,10 +15,10 @@ namespace SmartSocketsWebService
         bool SetNewProperty(Property property);
 
         [OperationContract]
-        Property GetProperty(int ID);
+        bool GetProperty(int ID, out Property result);
 
         [OperationContract]
-        List<Property> GetAllProperties();
+        bool GetAllProperties(out List<Property> result);
     }
 
 

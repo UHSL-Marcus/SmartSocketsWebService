@@ -17,19 +17,24 @@ namespace SmartSocketsWebService
             return SQL_doInsert(device);
         }
 
-        public Device GetDevice(int ID)
+        public bool GetDevice(int ID, out Device result)
         {
+
+            result = null;
             List<Device> list = SQl_getEntryByID<Device>(ID);
 
-            if (list.Count > 1) return null;
+            if (list.Count != 1) return false;
 
-            return list[0];
+            result = list[0];
+
+            return true;
         }
-
-        public List<Device> GetAllDevices()
+        public bool GetAllDevices(out List<Device> result)
         {
-            return SQL_getAllEntries<Device>();
-            
+            result = SQL_getAllEntries<Device>();
+
+            if (result.Count > 0) return true;
+            return false;
         }
     }
 }

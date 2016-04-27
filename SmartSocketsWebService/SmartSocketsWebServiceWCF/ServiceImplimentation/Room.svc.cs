@@ -17,17 +17,23 @@ namespace SmartSocketsWebService
             return SQL_doInsert(room);
         }
 
-        public Room GetRoom(int ID) { 
+        public bool GetRoom(int ID, out Room result) {
 
+            result = null;
             List<Room> list = SQl_getEntryByID<Room>(ID);
 
-            if (list.Count > 1) return null;
+            if (list.Count != 1) return false;
 
-            return list[0];
+            result = list[0];
+
+            return true;
         }
-        public List<Room> GetAllRooms()
+        public bool GetAllRooms(out List<Room> result)
         {
-            return SQL_getAllEntries<Room>();
+            result = SQL_getAllEntries<Room>();
+
+            if (result.Count > 0) return true;
+            return false;
         }
 
     }

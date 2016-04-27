@@ -15,10 +15,10 @@ namespace SmartSocketsWebService
         bool SetNewPaymentLevel(PaymentLevel paymentLevel);
 
         [OperationContract]
-        PaymentLevel GetPaymentLevel(int ID);
+        bool GetPaymentLevel(int ID, out PaymentLevel result);
 
         [OperationContract]
-        List<PaymentLevel> GetAllPaymentLevels();
+        bool GetAllPaymentLevels(out List<PaymentLevel> result);
     }
 
 

@@ -17,18 +17,24 @@ namespace SmartSocketsWebService
             return SQL_doInsert(property);
         }
 
-        public Property GetProperty(int ID)
+        public bool GetProperty(int ID, out Property result)
         {
+
+            result = null;
             List<Property> list = SQl_getEntryByID<Property>(ID);
 
-            if (list.Count > 1) return null;
+            if (list.Count != 1) return false;
 
-            return list[0];
+            result = list[0];
+
+            return true;
         }
-
-        public List<Property> GetAllProperties()
+        public bool GetAllProperties(out List<Property> result)
         {
-            return SQL_getAllEntries<Property>();
+            result = SQL_getAllEntries<Property>();
+
+            if (result.Count > 0) return true;
+            return false;
         }
     }
 }

@@ -12,29 +12,10 @@ namespace SmartSocketsWebService
     // NOTE: In order to launch WCF Test Client for testing this service, please select SmartSocketsWebService.svc or SmartSocketsWebService.svc.cs at the Solution Explorer and start debugging.
     public partial class SmartSocketsWebService : ISmartSocketsWebService
     {
-       public bool SetNewDeviceType(DeviceType deviceType)
+       public SmartSocketsWebService()
         {
-            return SQL_doInsert(deviceType);
+            MongoDB_Start();
         }
 
-        public bool GetDeviceType(int ID, out DeviceType result)
-        {
-
-            result = null;
-            List<DeviceType> list = SQl_getEntryByID<DeviceType>(ID);
-
-            if (list.Count != 1) return false;
-
-            result = list[0];
-
-            return true;
-        }
-        public bool GetAllDeviceTypes(out List<DeviceType> result)
-        {
-            result = SQL_getAllEntries<DeviceType>();
-
-            if (result.Count > 0) return true;
-            return false;
-        }
     }
 }

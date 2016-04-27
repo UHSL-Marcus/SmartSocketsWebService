@@ -8,28 +8,31 @@ using System.Text;
 
 namespace SmartSocketsWebService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "SmartSocketsWebService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select SmartSocketsWebService.svc or SmartSocketsWebService.svc.cs at the Solution Explorer and start debugging.
     public partial class SmartSocketsWebService : ISmartSocketsWebService
     {
         public bool AddDataEntry(DataEntry entry, string deviceID)
         {
-            return MongoDB_InsertDocument(entry, deviceID, string.Format("{0:dd/MM/YYYY-HH:mm:ss}", entry.TimeStamp));
+            return MongoDB_InsertDocument(entry, deviceID);
         }
 
-        public DataEntry GetDataEntry(DateTime TimeStamp, string deviceID)
+        public bool GetDataEntry(DateTime TimeStamp, string deviceID, out DataEntry result)
         {
-            List<DataEntry> list = MongoDB_GetDocumentFromID<DataEntry>(deviceID, string.Format("{0:dd/MM/YYYY-HH:mm:ss}"));
+            result = null;
+            List<DataEntry> list = MongoDB_GetDocumentFromID<DataEntry>(deviceID, TimeStamp);
 
-            if (list.Count > 1) return null;
+            if (list.Count != 1) return false;
 
-            return list[0];
+            result = list[0];
+
+            return true;
         }
 
-
-        public List<DataEntry> GetAllEntires(string deviceID)
+        public bool GetAllDataEntires(string deviceID, out List<DataEntry> result)
         {
-            return MongoDB_GetDocuments<DataEntry>(deviceID);
+            result = MongoDB_GetAllDocuments<DataEntry>(deviceID);
+
+            if (result.Count > 0) return true;
+            return false;
         }
     }
 }

@@ -1,33 +1,44 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
+
 using System.Linq;
 using System.Reflection;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
+
 
 namespace SmartSocketsWebService
 {
+
+    
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "SmartSocketsWebService" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select SmartSocketsWebService.svc or SmartSocketsWebService.svc.cs at the Solution Explorer and start debugging.
     public partial class SmartSocketsWebService : ISmartSocketsWebService
     {
 
-        protected static IMongoClient _client = new MongoClient();
-        protected static IMongoDatabase _database = _client.GetDatabase("SmartSocketData");
+        protected static IMongoClient _client;
+        protected static IMongoDatabase _database;
 
-        private bool MongoDB_InsertDocument<TYPE>(TYPE ob, string collectionName, string id = null)
+        private void MongoDB_Start()
+        {
+            if (!BsonClassMap.IsClassMapRegistered(typeof(Data))) 
+                BsonClassMap.RegisterClassMap<Data>();
+            if (!BsonClassMap.IsClassMapRegistered(typeof(DataEntry)))
+                BsonClassMap.RegisterClassMap<DataEntry>();
+
+            _client = new MongoClient();
+            _database = _client.GetDatabase("SmartSocketData");
+        }
+
+
+        private bool MongoDB_InsertDocument<TYPE>(TYPE ob, string collectionName)
         {
             try {
 
-                var collection = _database.GetCollection<BsonDocument>(collectionName);
-                var document = MongoDB_BuildDocument(ob, id);
-                collection.InsertOne(document);
+                var collection = _database.GetCollection<TYPE>(collectionName);
+                collection.DeleteMany(Builders<TYPE>.Filter.Empty);
+                collection.InsertOne(ob);
                 return true;
 
             } catch (Exception e)
@@ -37,37 +48,54 @@ namespace SmartSocketsWebService
 
         }
 
-        private List<BsonDocument> MongoDB_GetDocuments(string collectionName, FilterDefinition<BsonDocument> filterOptions)
+        private List<TYPE> MongoDB_GetDocuments<TYPE>(string collectionName, FilterDefinition<TYPE> filterOptions)
         {
-            var collection = _database.GetCollection<BsonDocument>(collectionName);
+            var collection = _database.GetCollection<TYPE>(collectionName);
             return collection.Find(filterOptions).ToList();
    
         }
+        
 
-        private List<TYPE> MongoDB_GetDocumentFromID<TYPE>(string collection, string ID)
+        private List<TYPE> MongoDB_GetDocumentFromID<TYPE>(string collection, object ID)
         {
-            var filter = Builders<BsonDocument>.Filter.Eq("_id", MongoDB_convertToBsonValue(ID));
 
-            List<TYPE> objects = new List<TYPE>();
+            var filter = Builders<TYPE>.Filter.Eq("_id", BsonValue.Create(ID));
 
-            foreach (BsonDocument doc in MongoDB_GetDocuments(collection, filter))
-                objects.Add(MongoDB_BsonDocumentToObject<TYPE>(doc));
-            
-            return objects;
+            return MongoDB_GetDocuments(collection, filter);
         }
 
-        private List<TYPE> MongoDB_GetDocuments<TYPE>(string collection)
+        private List<TYPE> MongoDB_GetAllDocuments<TYPE>(string collection)
         {
-           
-            List<TYPE> objects = new List<TYPE>();
-
-            foreach (BsonDocument doc in MongoDB_GetDocuments(collection, Builders<BsonDocument>.Filter.Empty))
-                objects.Add(MongoDB_BsonDocumentToObject<TYPE>(doc));
-
-            return objects;
+            return MongoDB_GetDocuments(collection, Builders<TYPE>.Filter.Empty);
         }
 
 
+
+        /*private void MongoDB_GetDocuments(string collectionName)
+        {
+            var collection = _database.GetCollection<BsonDocument>(collectionName);
+            DateTime dt = new DateTime(2016, 4, 27, 11, 14, 0, DateTimeKind.Utc);
+            string s1 = string.Format("{0:dd/MM/yyyy-HH:mm:ss}", dt);
+            BsonValue bv = BsonValue.Create(dt);
+            List<BsonDocument> list = collection.Find(Builders<BsonDocument>.Filter.Eq("_id", BsonValue.Create(dt))).ToList();
+
+            string s = "";
+
+            foreach (BsonDocument b in list)
+                s += "\n" + b.ToJson();
+
+            s += "\n";
+
+            list = collection.Find(Builders<BsonDocument>.Filter.Empty).ToList();
+
+            s = "";
+
+            foreach (BsonDocument b in list)
+                s += "\n" + b.ToJson();
+
+            s += "\n";
+
+        }
         private BsonDocument MongoDB_BuildDocument<TYPE>(TYPE ob, string id = null)
         {
             Type type = typeof(TYPE);
@@ -123,10 +151,9 @@ namespace SmartSocketsWebService
             return bVal;
         }
 
-        private object MongoDB_ConvertFromBsonValue<TYPE>(BsonValue bsonVal)
+        private object MongoDB_ConvertFromBsonValue(BsonValue bsonVal, Type type)
         {
-           Type type = typeof(TYPE);
-
+           
             if (bsonVal.IsBsonDateTime)
                 return bsonVal.ToUniversalTime();
             else if (bsonVal.IsInt32)
@@ -137,13 +164,8 @@ namespace SmartSocketsWebService
             {
                 List<object> list = new List<object>();
                 foreach(BsonValue bval in ((BsonArray)bsonVal).ToArray())
-                {
-                    type.GetElementType().MakeGenericType()
-                    
-
-
-                    list.Add(MongoDB_ConvertFromBsonValue(bval));
-                }
+                    list.Add(MongoDB_ConvertFromBsonValue(bval, type.GetElementType()));
+                
 
                 return list.ToArray();
 
@@ -168,7 +190,7 @@ namespace SmartSocketsWebService
                 BsonValue val;
                 if (doc.TryGetValue(nm, out val))
                 {
-                    object convertedVal = MongoDB_ConvertFromBsonValue<>(val);
+                    object convertedVal = MongoDB_ConvertFromBsonValue(val, obVal.GetType());
                     if (obVal.GetType().Equals(convertedVal.GetType()))
                         fields[i].SetValue(ob, convertedVal);
                 }
@@ -179,6 +201,6 @@ namespace SmartSocketsWebService
                 
 
             return ob;
-        }
+        }*/
     }
 }

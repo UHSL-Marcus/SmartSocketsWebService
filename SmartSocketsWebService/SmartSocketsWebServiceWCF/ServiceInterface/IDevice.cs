@@ -15,10 +15,10 @@ namespace SmartSocketsWebService
         bool SetNewDevice(Device device);
 
         [OperationContract]
-        Device GetDevice(int ID);
+        bool GetDevice(int ID, out Device result);
 
         [OperationContract]
-        List<Device> GetAllDevices();
+        bool GetAllDevices(out List<Device> result);
 
     }
 
