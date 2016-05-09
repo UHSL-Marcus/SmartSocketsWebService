@@ -11,13 +11,13 @@ namespace SmartSocketsWebService
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "ISmartSocketsWebService" in both code and config file together.
     public partial interface ISmartSocketsWebService
     {
-        [OperationContract]
+        [OperationContract][WebInvoke]
         bool SetNewOwner(Owner owner);
 
-        [OperationContract]
+        [OperationContract][WebInvoke]
         bool GetOwner(int ID, out Owner result);
 
-        [OperationContract]
+        [OperationContract][WebInvoke]
         bool GetAllOwners(out List<Owner> result);
     }
 

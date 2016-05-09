@@ -11,13 +11,13 @@ namespace SmartSocketsWebService
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "ISmartSocketsWebService" in both code and config file together.
     public partial interface ISmartSocketsWebService
     {
-        [OperationContract]
+        [OperationContract][WebInvoke]
         bool SetNewRoom(Room room);
 
-        [OperationContract]
+        [OperationContract][WebInvoke]
         bool GetRoom(int ID, out Room result);
 
-        [OperationContract]
+        [OperationContract][WebInvoke]
         bool GetAllRooms(out List<Room> result);
     }
 

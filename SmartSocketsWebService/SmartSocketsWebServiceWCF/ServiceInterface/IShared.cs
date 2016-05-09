@@ -13,10 +13,10 @@ namespace SmartSocketsWebService
     public partial interface ISmartSocketsWebService
     {
 
-        /*[OperationContract]
+        /*[OperationContract][WebInvoke]
         string GetData(int value);
 
-        [OperationContract]
+        [OperationContract][WebInvoke]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
         // TODO: Add your service operations here*/

@@ -1,0 +1,72 @@
+-----Request-----
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header>
+    <Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://tempuri.org/ISmartSocketsWebService/SetNewPaymentLevel</Action>
+  </s:Header>
+  <s:Body>
+    <SetNewPaymentLevel xmlns="http://tempuri.org/">
+      <paymentLevel xmlns:d4p1="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+        <d4p1:Name>temp2</d4p1:Name>
+        <d4p1:PaymentLevelID>6</d4p1:PaymentLevelID>
+      </paymentLevel>
+    </SetNewPaymentLevel>
+  </s:Body>
+</s:Envelope>
+
+
+
+----Simple Reqest----
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header>
+    <Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">http://tempuri.org/ISmartSocketsWebService/GetAllDevices</Action>
+  </s:Header>
+  <s:Body>
+    <GetAllDevices xmlns="http://tempuri.org/" />
+  </s:Body>
+</s:Envelope>
+
+<s:Envelope xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+  <s:Header>
+    <a:Action s:mustUnderstand="1">http://tempuri.org/ISmartSocketsWebService/GetAllDevices</a:Action>
+    <a:MessageID>urn:uuid:c74ff41f-4861-48c0-a19c-366b14ec5755</a:MessageID>
+    <a:ReplyTo>
+      <a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address>
+    </a:ReplyTo>
+  </s:Header>
+  <s:Body>
+    <GetAllDevices xmlns="http://tempuri.org/" />
+  </s:Body>
+</s:Envelope>
+
+-----Response -----
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header />
+  <s:Body>
+    <GetAllDevicesResponse xmlns="http://tempuri.org/">
+      <GetAllDevicesResult>true</GetAllDevicesResult>
+      <result xmlns:a="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+        <a:Device>
+          <a:DeviceID>3</a:DeviceID>
+          <a:DeviceTypeID>1</a:DeviceTypeID>
+          <a:RoomID>2</a:RoomID>
+        </a:Device>
+        <a:Device>
+          <a:DeviceID>4</a:DeviceID>
+          <a:DeviceTypeID>1</a:DeviceTypeID>
+          <a:RoomID>2</a:RoomID>
+        </a:Device>
+      </result>
+    </GetAllDevicesResponse>
+  </s:Body>
+</s:Envelope>
+
+
+----simple Response----
+<s:Envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+  <s:Header />
+  <s:Body>
+    <SetNewPaymentLevelResponse xmlns="http://tempuri.org/">
+      <SetNewPaymentLevelResult>true</SetNewPaymentLevelResult>
+    </SetNewPaymentLevelResponse>
+  </s:Body>
+</s:Envelope>

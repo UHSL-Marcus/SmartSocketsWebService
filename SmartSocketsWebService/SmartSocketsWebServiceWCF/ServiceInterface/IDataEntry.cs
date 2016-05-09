@@ -3,20 +3,22 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-
+using System.ServiceModel.Web;
 
 namespace SmartSocketsWebService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "ISmartSocketsWebService" in both code and config file together.
     public partial interface ISmartSocketsWebService
     {
-        [OperationContract]
+        [OperationContract][WebInvoke]
         bool AddDataEntry(DataEntry entry, string deviceID);
 
         [OperationContract]
+        [WebInvoke]
         bool GetDataEntry(DateTime TimeStamp, string deviceID, out DataEntry result);
 
         [OperationContract]
+        [WebInvoke]
         bool GetAllDataEntires(string deviceID, out List<DataEntry> result);
 
     }
