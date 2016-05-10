@@ -9,7 +9,7 @@ using System.Text;
 namespace SmartSocketsWebService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "ISmartSocketsWebService" in both code and config file together.
-    [ServiceContract]
+    [ServiceContract(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign)]
     public partial interface ISmartSocketsWebService
     {
 

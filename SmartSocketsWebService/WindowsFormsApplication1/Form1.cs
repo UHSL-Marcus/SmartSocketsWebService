@@ -18,10 +18,25 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            HTTPRequest httpReq = new HTTPRequest();
-            string info = httpReq.HttpSimpleSOAPRequest();
+            ServiceReference1.SmartSocketsWebServiceClient client = new
+        ServiceReference1.SmartSocketsWebServiceClient();
 
-            infoBox.Text = info;
+            client.Endpoint.Contract.ProtectionLevel = System.Net.Security.ProtectionLevel.EncryptAndSign;
+
+            client.ClientCredentials.UserName.UserName = "root";
+            client.ClientCredentials.UserName.Password = "root";
+
+            ServiceReference1.Device[] devices;
+            string info = "";
+
+            if (client.GetAllDevices(out devices)) {
+                foreach (ServiceReference1.Device device in devices)
+                {
+                    info += device.DeviceID + "\n";
+                }
+            }
+
+            infoBox.Text = info; 
         }
     }
 }

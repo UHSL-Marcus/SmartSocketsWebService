@@ -1,0 +1,62 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<a:Action s:mustUnderstand="1">http://schemas.xmlsoap.org/ws/2005/02/trust/RST/SCT</a:Action>
+		<a:MessageID>urn:uuid:4d0956e2-fa40-44e2-8774-30773d80a1d0</a:MessageID>
+		<a:ReplyTo>
+			<a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address>
+		</a:ReplyTo>
+		<a:To s:mustUnderstand="1">https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc</a:To>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>2016-05-10T09:05:58.291Z</u:Created>
+				<u:Expires>2016-05-10T09:10:58.291Z</u:Expires>
+			</u:Timestamp>
+			<o:UsernameToken u:Id="uuid-b96a6801-9e2f-4074-96eb-c931f893b55b-1">
+				<o:Username>root</o:Username>
+				<o:Password o:Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">root</o:Password>
+			</o:UsernameToken>
+		</o:Security>
+	</s:Header>
+	<s:Body>
+		<t:RequestSecurityToken xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust">
+			<t:TokenType>http://schemas.xmlsoap.org/ws/2005/02/sc/sct</t:TokenType>
+			<t:RequestType>http://schemas.xmlsoap.org/ws/2005/02/trust/Issue</t:RequestType>
+			<t:Entropy>
+				<t:BinarySecret u:Id="uuid-d076b256-3f91-4233-9894-9a86df7e2315-1" Type="http://schemas.xmlsoap.org/ws/2005/02/trust/Nonce">oTZ50h+KLnRVxBR8HcL3fn9hpZFBhbBueo4DSQDmMYI=</t:BinarySecret>
+			</t:Entropy>
+			<t:KeySize>256</t:KeySize>
+		</t:RequestSecurityToken>
+	</s:Body>
+</s:Envelope>
+
+
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<a:Action s:mustUnderstand="1">http://schemas.xmlsoap.org/ws/2005/02/trust/RST/SCT</a:Action>
+		<a:MessageID>urn:uuid:d08bdfa6-361a-46bf-8a96-92a1ed0aa7fb</a:MessageID>
+		<a:ReplyTo>
+			<a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address>
+		</a:ReplyTo>
+		<a:To s:mustUnderstand="1">https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc</a:To>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>2016-05-10T10:13:40.885Z</u:Created>
+				<u:Expires>2016-05-10T10:18:40.885Z</u:Expires>
+			</u:Timestamp>
+			<o:UsernameToken u:Id="uuid-8c5552f3-a27c-4e78-ac91-3bd40b2657cd-1">
+				<o:Username>root</o:Username>
+				<o:Password o:Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">root</o:Password>
+			</o:UsernameToken>
+		</o:Security>
+	</s:Header>
+	<s:Body>
+		<t:RequestSecurityToken xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust">
+			<t:TokenType>http://schemas.xmlsoap.org/ws/2005/02/sc/sct</t:TokenType>
+			<t:RequestType>http://schemas.xmlsoap.org/ws/2005/02/trust/Issue</t:RequestType>
+			<t:Entropy>
+				<t:BinarySecret u:Id="uuid-1a7ecee3-48f6-4969-9d46-705580daf680-1" Type="http://schemas.xmlsoap.org/ws/2005/02/trust/Nonce">h4Tt5dK1o6AkPENeF8Pz6Rgh9HdAcB8PXHtLgdciUq8=</t:BinarySecret>
+			</t:Entropy>
+			<t:KeySize>256</t:KeySize>
+		</t:RequestSecurityToken>
+	</s:Body>
+</s:Envelope>

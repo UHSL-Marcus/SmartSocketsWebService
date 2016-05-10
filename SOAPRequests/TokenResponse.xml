@@ -1,0 +1,43 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<a:Action s:mustUnderstand="1">http://schemas.xmlsoap.org/ws/2005/02/trust/RSTR/SCT</a:Action>
+		<a:RelatesTo>urn:uuid:4d0956e2-fa40-44e2-8774-30773d80a1d0</a:RelatesTo>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>2016-05-10T09:05:58.995Z</u:Created>
+				<u:Expires>2016-05-10T09:10:58.995Z</u:Expires>
+			</u:Timestamp>
+		</o:Security>
+	</s:Header>
+	<s:Body>
+		<t:RequestSecurityTokenResponse xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust">
+			<t:TokenType>http://schemas.xmlsoap.org/ws/2005/02/sc/sct</t:TokenType>
+			<t:RequestedSecurityToken>
+				<c:SecurityContextToken u:Id="uuid-f1dfc547-0aa1-436d-b67a-ed66252bf5ec-9" xmlns:c="http://schemas.xmlsoap.org/ws/2005/02/sc">
+					<c:Identifier>urn:uuid:4ab01aa8-aa16-459d-8ad3-c554bf25a59b</c:Identifier>
+				</c:SecurityContextToken>
+			</t:RequestedSecurityToken>
+			<t:RequestedAttachedReference>
+				<o:SecurityTokenReference xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+					<o:Reference ValueType="http://schemas.xmlsoap.org/ws/2005/02/sc/sct" URI="#uuid-f1dfc547-0aa1-436d-b67a-ed66252bf5ec-9"></o:Reference>
+				</o:SecurityTokenReference>
+			</t:RequestedAttachedReference>
+			<t:RequestedUnattachedReference>
+				<o:SecurityTokenReference xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+					<o:Reference URI="urn:uuid:4ab01aa8-aa16-459d-8ad3-c554bf25a59b" ValueType="http://schemas.xmlsoap.org/ws/2005/02/sc/sct"></o:Reference>
+				</o:SecurityTokenReference>
+			</t:RequestedUnattachedReference>
+			<t:RequestedProofToken>
+				<t:ComputedKey>http://schemas.xmlsoap.org/ws/2005/02/trust/CK/PSHA1</t:ComputedKey>
+			</t:RequestedProofToken>
+			<t:Entropy>
+				<t:BinarySecret u:Id="uuid-f1dfc547-0aa1-436d-b67a-ed66252bf5ec-10" Type="http://schemas.xmlsoap.org/ws/2005/02/trust/Nonce">Nz6kpJfuGr37xFpEuw4w/AZn36d0EGBsC8vZHRX2Vq8=</t:BinarySecret>
+			</t:Entropy>
+			<t:Lifetime>
+				<u:Created>2016-05-10T09:05:58.995Z</u:Created>
+				<u:Expires>2016-05-11T00:05:58.995Z</u:Expires>
+			</t:Lifetime>
+			<t:KeySize>256</t:KeySize>
+		</t:RequestSecurityTokenResponse>
+	</s:Body>
+</s:Envelope>
