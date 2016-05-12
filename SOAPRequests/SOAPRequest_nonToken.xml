@@ -1,0 +1,30 @@
+POST https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc HTTP/1.1
+Content-Type: application/soap+xml; charset=utf-8
+Host: ent-ml15aaf-1.herts.ac.uk
+Content-Length: 1176
+Expect: 100-continue
+Connection: Keep-Alive
+
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:a="http://www.w3.org/2005/08/addressing" xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+	<s:Header>
+		<a:Action s:mustUnderstand="1">http://tempuri.org/ISmartSocketsWebService/GetAllDevices</a:Action>
+		<a:MessageID>urn:uuid:cf03f1f1-1e2a-4d71-b6b4-4c9aa335ad69</a:MessageID>
+		<a:ReplyTo>
+			<a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address>
+		</a:ReplyTo>
+		<a:To s:mustUnderstand="1">https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc</a:To>
+		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+			<u:Timestamp u:Id="_0">
+				<u:Created>2016-05-12T11:23:18.016Z</u:Created>
+				<u:Expires>2016-05-12T11:28:18.016Z</u:Expires>
+			</u:Timestamp>
+			<o:UsernameToken u:Id="uuid-6df7fed1-baf9-4a3a-8df3-505e2277bda9-1">
+				<o:Username>root</o:Username>
+				<o:Password o:Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">root</o:Password>
+			</o:UsernameToken>
+		</o:Security>
+	</s:Header>
+	<s:Body>
+		<GetAllDevices xmlns="http://tempuri.org/"/>
+	</s:Body>
+</s:Envelope>

@@ -21,7 +21,10 @@ namespace WindowsFormsApplication1
             ServiceReference1.SmartSocketsWebServiceClient client = new
         ServiceReference1.SmartSocketsWebServiceClient();
 
-            client.Endpoint.Contract.ProtectionLevel = System.Net.Security.ProtectionLevel.EncryptAndSign;
+            //client.Endpoint.Contract.ProtectionLevel = System.Net.Security.ProtectionLevel.EncryptAndSign;
+
+            
+            //System.ServiceModel.Channels.Binding
 
             client.ClientCredentials.UserName.UserName = "root";
             client.ClientCredentials.UserName.Password = "root";
