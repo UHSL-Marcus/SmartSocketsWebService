@@ -12,7 +12,10 @@ namespace SmartSocketsWebService
     public partial interface ISmartSocketsWebService
     {
         [OperationContract][WebInvoke]
-        bool SetNewRoom(Room room);
+        bool SetNewRoom(Room room, out string ID);
+
+        [OperationContract][WebInvoke]
+        bool RemoveRoom(int ID);
 
         [OperationContract][WebInvoke]
         bool GetRoom(int ID, out Room result);
@@ -30,5 +33,7 @@ namespace SmartSocketsWebService
         public int RoomID = -1;
         [DataMember]
         public int PropertyID;
+        [DataMember]
+        public string RoomName;
     }
 }

@@ -30,7 +30,13 @@ namespace SmartSocketsWebService
             return SQL_getData<TYPE>("SELECT * FROM " + type.Name);
         }
 
-        private List<TYPE> SQL_getData<TYPE>(string sql)
+        private bool SQL_deleteEntryByID<TYPE>(int ID)
+        {
+            Type type = typeof(TYPE);
+            return SQL_doNonQuery("DELETE FROM " + type.Name + " WHERE " + type.Name + "ID = '" + ID + "'");
+        }
+
+        private DataTableReader SQL_getDataReader(string sql)
         {
             SqlDataAdapter adapter = new SqlDataAdapter();
             SqlCommand cmd = sqlConnStateful.CreateCommand();
@@ -42,7 +48,13 @@ namespace SmartSocketsWebService
             adapter.Fill(dataSet);
             sqlConnStateful.Close();
 
-            DataTableReader reader = dataSet.CreateDataReader();
+            return dataSet.CreateDataReader();
+        }
+
+        private List<TYPE> SQL_getData<TYPE>(string sql)
+        {
+
+            DataTableReader reader = SQL_getDataReader(sql);
 
             List<TYPE> returnList = new List<TYPE>();
 
@@ -62,7 +74,30 @@ namespace SmartSocketsWebService
             }
 
             return returnList;
+        }
 
+        private bool SQL_getSingleEntry(string sql, string columnName, out object output)
+        {
+            DataTableReader reader = SQL_getDataReader(sql);
+
+            bool success = false;
+
+            output = null;
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    if (reader.GetName(i).Equals(columnName)) 
+                    {
+                        output = reader[i];
+                        success = true;
+                    }
+                }
+            }
+
+
+            return success;
 
         }
 
@@ -82,11 +117,13 @@ namespace SmartSocketsWebService
 
         }
 
-        private bool SQL_doInsert<TYPE>(TYPE ob)
+        private bool SQL_doInsertReturnID<TYPE>(TYPE ob, out string ID)
         {
             Type type = typeof(TYPE);
 
-            string queryName = "INSERT INTO " + type.Name;
+            string declaration = "DECLARE @outputTable table(" + type.Name + "ID int NOT NULL)";
+
+            string queryName = " INSERT INTO " + type.Name;
             string queryValues = "";
 
 
@@ -99,7 +136,7 @@ namespace SmartSocketsWebService
                     if (queryValues.Length < 1)
                     {
                         queryName += "(";
-                        queryValues += "values(";
+                        queryValues += " values(";
                     }
 
                     queryName += fields[i].Name;
@@ -131,7 +168,16 @@ namespace SmartSocketsWebService
             }
             else queryValues += " DEFAULT VALUES";
 
-            return SQL_doNonQuery(queryName + queryValues);
+            queryName += " OUTPUT INSERTED." + type.Name + "ID INTO @outputTable";
+
+            string select = "; SELECT " + type.Name + "ID FROM @outputTable;";
+
+            object reply;
+            bool success = SQL_getSingleEntry(declaration + queryName + queryValues + select, type.Name + "ID", out reply);
+
+            ID = reply.ToString();
+
+            return success;
 
         }
 

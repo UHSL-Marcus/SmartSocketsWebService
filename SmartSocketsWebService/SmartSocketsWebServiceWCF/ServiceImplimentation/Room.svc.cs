@@ -12,9 +12,14 @@ namespace SmartSocketsWebService
     // NOTE: In order to launch WCF Test Client for testing this service, please select SmartSocketsWebService.svc or SmartSocketsWebService.svc.cs at the Solution Explorer and start debugging.
     public partial class SmartSocketsWebService : ISmartSocketsWebService
     {
-       public bool SetNewRoom(Room room)
+       public bool SetNewRoom(Room room, out string ID)
         {
-            return SQL_doInsert(room);
+            return SQL_doInsertReturnID(room, out ID);
+        }
+
+        public bool RemoveRoom(int ID)
+        {
+            return SQL_deleteEntryByID<Room>(ID);
         }
 
         public bool GetRoom(int ID, out Room result) {
@@ -28,6 +33,7 @@ namespace SmartSocketsWebService
 
             return true;
         }
+
         public bool GetAllRooms(out List<Room> result)
         {
             result = SQL_getAllEntries<Room>();

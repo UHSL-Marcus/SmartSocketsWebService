@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="SWgTkS5XA6v/Gyaf2yX8Fy1Mk0U=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="CwINiaZgx3adT7P5tgWcJogRTyk=">
   <bindingConfigurations>
-    <bindingConfiguration bindingType="wsHttpBinding" name="wsHTTPEndpoint">
+    <bindingConfiguration bindingType="wsHttpBinding" name="wsHttpsEndpoint">
       <properties>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>wsHTTPEndpoint</serializedValue>
+          <serializedValue>wsHttpsEndpoint</serializedValue>
         </property>
         <property path="/closeTimeout" isComplexType="false" isExplicitlyDefined="true" clrType="System.TimeSpan, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
@@ -120,14 +120,14 @@
         <property path="/security/message/algorithmSuite" isComplexType="false" isExplicitlyDefined="false" clrType="System.ServiceModel.Security.SecurityAlgorithmSuite, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>Default</serializedValue>
         </property>
-        <property path="/security/message/establishSecurityContext" isComplexType="false" isExplicitlyDefined="false" clrType="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>True</serializedValue>
+        <property path="/security/message/establishSecurityContext" isComplexType="false" isExplicitlyDefined="true" clrType="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+          <serializedValue>False</serializedValue>
         </property>
       </properties>
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="wsHTTPEndpoint" contract="ServiceReference1.ISmartSocketsWebService" bindingType="wsHttpBinding" address="https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc" bindingConfiguration="wsHTTPEndpoint">
+    <endpoint name="wsHttpsEndpoint" contract="ServiceReference1.ISmartSocketsWebService" bindingType="wsHttpBinding" address="https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc" bindingConfiguration="wsHttpsEndpoint">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc</serializedValue>
@@ -139,7 +139,7 @@
           <serializedValue>wsHttpBinding</serializedValue>
         </property>
         <property path="/bindingConfiguration" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>wsHTTPEndpoint</serializedValue>
+          <serializedValue>wsHttpsEndpoint</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>ServiceReference1.ISmartSocketsWebService</serializedValue>
@@ -202,7 +202,7 @@
           <serializedValue>False</serializedValue>
         </property>
         <property path="/name" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>wsHTTPEndpoint</serializedValue>
+          <serializedValue>wsHttpsEndpoint</serializedValue>
         </property>
         <property path="/kind" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

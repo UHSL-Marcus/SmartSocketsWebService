@@ -442,6 +442,9 @@ namespace WindowsFormsApplication1.ServiceReference1 {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int RoomIDField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RoomNameField;
+        
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
             get {
@@ -474,6 +477,19 @@ namespace WindowsFormsApplication1.ServiceReference1 {
                 if ((this.RoomIDField.Equals(value) != true)) {
                     this.RoomIDField = value;
                     this.RaisePropertyChanged("RoomID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RoomName {
+            get {
+                return this.RoomNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoomNameField, value) != true)) {
+                    this.RoomNameField = value;
+                    this.RaisePropertyChanged("RoomName");
                 }
             }
         }
@@ -579,7 +595,10 @@ namespace WindowsFormsApplication1.ServiceReference1 {
         bool GetAllDataEntires(out WindowsFormsApplication1.ServiceReference1.DataEntry[] result, string deviceID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/SetNewDevice", ReplyAction="http://tempuri.org/ISmartSocketsWebService/SetNewDeviceResponse")]
-        bool SetNewDevice(WindowsFormsApplication1.ServiceReference1.Device device);
+        bool SetNewDevice(out string ID, WindowsFormsApplication1.ServiceReference1.Device device);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/RemoveDevice", ReplyAction="http://tempuri.org/ISmartSocketsWebService/RemoveDeviceResponse")]
+        bool RemoveDevice(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/GetDevice", ReplyAction="http://tempuri.org/ISmartSocketsWebService/GetDeviceResponse")]
         bool GetDevice(out WindowsFormsApplication1.ServiceReference1.Device result, int ID);
@@ -588,7 +607,10 @@ namespace WindowsFormsApplication1.ServiceReference1 {
         bool GetAllDevices(out WindowsFormsApplication1.ServiceReference1.Device[] result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/SetNewDeviceType", ReplyAction="http://tempuri.org/ISmartSocketsWebService/SetNewDeviceTypeResponse")]
-        bool SetNewDeviceType(WindowsFormsApplication1.ServiceReference1.DeviceType deviceType);
+        bool SetNewDeviceType(out string ID, WindowsFormsApplication1.ServiceReference1.DeviceType deviceType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/RemoveDeviceType", ReplyAction="http://tempuri.org/ISmartSocketsWebService/RemoveDeviceTypeResponse")]
+        bool RemoveDeviceType(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/GetDeviceType", ReplyAction="http://tempuri.org/ISmartSocketsWebService/GetDeviceTypeResponse")]
         bool GetDeviceType(out WindowsFormsApplication1.ServiceReference1.DeviceType result, int ID);
@@ -597,7 +619,10 @@ namespace WindowsFormsApplication1.ServiceReference1 {
         bool GetAllDeviceTypes(out WindowsFormsApplication1.ServiceReference1.DeviceType[] result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/SetNewPaymentLevel", ReplyAction="http://tempuri.org/ISmartSocketsWebService/SetNewPaymentLevelResponse")]
-        bool SetNewPaymentLevel(WindowsFormsApplication1.ServiceReference1.PaymentLevel paymentLevel);
+        bool SetNewPaymentLevel(out string ID, WindowsFormsApplication1.ServiceReference1.PaymentLevel paymentLevel);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/RemovePaymentLevel", ReplyAction="http://tempuri.org/ISmartSocketsWebService/RemovePaymentLevelResponse")]
+        bool RemovePaymentLevel(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/GetPaymentLevel", ReplyAction="http://tempuri.org/ISmartSocketsWebService/GetPaymentLevelResponse")]
         bool GetPaymentLevel(out WindowsFormsApplication1.ServiceReference1.PaymentLevel result, int ID);
@@ -606,7 +631,10 @@ namespace WindowsFormsApplication1.ServiceReference1 {
         bool GetAllPaymentLevels(out WindowsFormsApplication1.ServiceReference1.PaymentLevel[] result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/SetNewProperty", ReplyAction="http://tempuri.org/ISmartSocketsWebService/SetNewPropertyResponse")]
-        bool SetNewProperty(WindowsFormsApplication1.ServiceReference1.Property property);
+        bool SetNewProperty(out string ID, WindowsFormsApplication1.ServiceReference1.Property property);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/RemoveProperty", ReplyAction="http://tempuri.org/ISmartSocketsWebService/RemovePropertyResponse")]
+        bool RemoveProperty(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/GetProperty", ReplyAction="http://tempuri.org/ISmartSocketsWebService/GetPropertyResponse")]
         bool GetProperty(out WindowsFormsApplication1.ServiceReference1.Property result, int ID);
@@ -615,7 +643,10 @@ namespace WindowsFormsApplication1.ServiceReference1 {
         bool GetAllProperties(out WindowsFormsApplication1.ServiceReference1.Property[] result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/SetNewRoom", ReplyAction="http://tempuri.org/ISmartSocketsWebService/SetNewRoomResponse")]
-        bool SetNewRoom(WindowsFormsApplication1.ServiceReference1.Room room);
+        bool SetNewRoom(out string ID, WindowsFormsApplication1.ServiceReference1.Room room);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/RemoveRoom", ReplyAction="http://tempuri.org/ISmartSocketsWebService/RemoveRoomResponse")]
+        bool RemoveRoom(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/GetRoom", ReplyAction="http://tempuri.org/ISmartSocketsWebService/GetRoomResponse")]
         bool GetRoom(out WindowsFormsApplication1.ServiceReference1.Room result, int ID);
@@ -624,7 +655,10 @@ namespace WindowsFormsApplication1.ServiceReference1 {
         bool GetAllRooms(out WindowsFormsApplication1.ServiceReference1.Room[] result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/SetNewOwner", ReplyAction="http://tempuri.org/ISmartSocketsWebService/SetNewOwnerResponse")]
-        bool SetNewOwner(WindowsFormsApplication1.ServiceReference1.Owner owner);
+        bool SetNewOwner(out string ID, WindowsFormsApplication1.ServiceReference1.Owner owner);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/RemoveOwner", ReplyAction="http://tempuri.org/ISmartSocketsWebService/RemoveOwnerResponse")]
+        bool RemoveOwner(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/GetOwner", ReplyAction="http://tempuri.org/ISmartSocketsWebService/GetOwnerResponse")]
         bool GetOwner(out WindowsFormsApplication1.ServiceReference1.Owner result, int ID);
@@ -672,8 +706,12 @@ namespace WindowsFormsApplication1.ServiceReference1 {
             return base.Channel.GetAllDataEntires(out result, deviceID);
         }
         
-        public bool SetNewDevice(WindowsFormsApplication1.ServiceReference1.Device device) {
-            return base.Channel.SetNewDevice(device);
+        public bool SetNewDevice(out string ID, WindowsFormsApplication1.ServiceReference1.Device device) {
+            return base.Channel.SetNewDevice(out ID, device);
+        }
+        
+        public bool RemoveDevice(int ID) {
+            return base.Channel.RemoveDevice(ID);
         }
         
         public bool GetDevice(out WindowsFormsApplication1.ServiceReference1.Device result, int ID) {
@@ -684,8 +722,12 @@ namespace WindowsFormsApplication1.ServiceReference1 {
             return base.Channel.GetAllDevices(out result);
         }
         
-        public bool SetNewDeviceType(WindowsFormsApplication1.ServiceReference1.DeviceType deviceType) {
-            return base.Channel.SetNewDeviceType(deviceType);
+        public bool SetNewDeviceType(out string ID, WindowsFormsApplication1.ServiceReference1.DeviceType deviceType) {
+            return base.Channel.SetNewDeviceType(out ID, deviceType);
+        }
+        
+        public bool RemoveDeviceType(int ID) {
+            return base.Channel.RemoveDeviceType(ID);
         }
         
         public bool GetDeviceType(out WindowsFormsApplication1.ServiceReference1.DeviceType result, int ID) {
@@ -696,8 +738,12 @@ namespace WindowsFormsApplication1.ServiceReference1 {
             return base.Channel.GetAllDeviceTypes(out result);
         }
         
-        public bool SetNewPaymentLevel(WindowsFormsApplication1.ServiceReference1.PaymentLevel paymentLevel) {
-            return base.Channel.SetNewPaymentLevel(paymentLevel);
+        public bool SetNewPaymentLevel(out string ID, WindowsFormsApplication1.ServiceReference1.PaymentLevel paymentLevel) {
+            return base.Channel.SetNewPaymentLevel(out ID, paymentLevel);
+        }
+        
+        public bool RemovePaymentLevel(int ID) {
+            return base.Channel.RemovePaymentLevel(ID);
         }
         
         public bool GetPaymentLevel(out WindowsFormsApplication1.ServiceReference1.PaymentLevel result, int ID) {
@@ -708,8 +754,12 @@ namespace WindowsFormsApplication1.ServiceReference1 {
             return base.Channel.GetAllPaymentLevels(out result);
         }
         
-        public bool SetNewProperty(WindowsFormsApplication1.ServiceReference1.Property property) {
-            return base.Channel.SetNewProperty(property);
+        public bool SetNewProperty(out string ID, WindowsFormsApplication1.ServiceReference1.Property property) {
+            return base.Channel.SetNewProperty(out ID, property);
+        }
+        
+        public bool RemoveProperty(int ID) {
+            return base.Channel.RemoveProperty(ID);
         }
         
         public bool GetProperty(out WindowsFormsApplication1.ServiceReference1.Property result, int ID) {
@@ -720,8 +770,12 @@ namespace WindowsFormsApplication1.ServiceReference1 {
             return base.Channel.GetAllProperties(out result);
         }
         
-        public bool SetNewRoom(WindowsFormsApplication1.ServiceReference1.Room room) {
-            return base.Channel.SetNewRoom(room);
+        public bool SetNewRoom(out string ID, WindowsFormsApplication1.ServiceReference1.Room room) {
+            return base.Channel.SetNewRoom(out ID, room);
+        }
+        
+        public bool RemoveRoom(int ID) {
+            return base.Channel.RemoveRoom(ID);
         }
         
         public bool GetRoom(out WindowsFormsApplication1.ServiceReference1.Room result, int ID) {
@@ -732,8 +786,12 @@ namespace WindowsFormsApplication1.ServiceReference1 {
             return base.Channel.GetAllRooms(out result);
         }
         
-        public bool SetNewOwner(WindowsFormsApplication1.ServiceReference1.Owner owner) {
-            return base.Channel.SetNewOwner(owner);
+        public bool SetNewOwner(out string ID, WindowsFormsApplication1.ServiceReference1.Owner owner) {
+            return base.Channel.SetNewOwner(out ID, owner);
+        }
+        
+        public bool RemoveOwner(int ID) {
+            return base.Channel.RemoveOwner(ID);
         }
         
         public bool GetOwner(out WindowsFormsApplication1.ServiceReference1.Owner result, int ID) {

@@ -10,7 +10,7 @@ Date: Thu, 12 May 2016 11:23:18 GMT
 		<a:Action s:mustUnderstand="1">http://tempuri.org/ISmartSocketsWebService/GetAllDevicesResponse</a:Action>
 		<a:RelatesTo>urn:uuid:cf03f1f1-1e2a-4d71-b6b4-4c9aa335ad69</a:RelatesTo>
 		<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
-			<u:Timestamp u:Id="_0">#
+			<u:Timestamp u:Id="_0">
 				<u:Created>2016-05-12T11:23:18.905Z</u:Created>
 				<u:Expires>2016-05-12T11:28:18.905Z</u:Expires>
 			</u:Timestamp>

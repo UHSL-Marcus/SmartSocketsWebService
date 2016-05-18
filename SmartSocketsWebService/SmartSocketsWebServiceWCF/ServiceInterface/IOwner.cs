@@ -12,7 +12,11 @@ namespace SmartSocketsWebService
     public partial interface ISmartSocketsWebService
     {
         [OperationContract][WebInvoke]
-        bool SetNewOwner(Owner owner);
+        bool SetNewOwner(Owner owner, out string ID);
+
+        [OperationContract]
+        [WebInvoke]
+        bool RemoveOwner(int ID);
 
         [OperationContract][WebInvoke]
         bool GetOwner(int ID, out Owner result);

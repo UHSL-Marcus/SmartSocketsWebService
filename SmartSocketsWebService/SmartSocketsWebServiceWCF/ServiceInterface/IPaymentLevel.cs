@@ -12,7 +12,11 @@ namespace SmartSocketsWebService
     public partial interface ISmartSocketsWebService
     {
         [OperationContract][WebInvoke]
-        bool SetNewPaymentLevel(PaymentLevel paymentLevel);
+        bool SetNewPaymentLevel(PaymentLevel paymentLevel, out string ID);
+
+        [OperationContract]
+        [WebInvoke]
+        bool RemovePaymentLevel(int ID);
 
         [OperationContract][WebInvoke]
         bool GetPaymentLevel(int ID, out PaymentLevel result);

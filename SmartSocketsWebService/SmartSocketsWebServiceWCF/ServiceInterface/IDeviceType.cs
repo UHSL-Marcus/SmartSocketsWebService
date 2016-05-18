@@ -12,7 +12,11 @@ namespace SmartSocketsWebService
     public partial interface ISmartSocketsWebService
     {
         [OperationContract][WebInvoke]
-        bool SetNewDeviceType(DeviceType deviceType);
+        bool SetNewDeviceType(DeviceType deviceType, out string ID);
+
+        [OperationContract]
+        [WebInvoke]
+        bool RemoveDeviceType(int ID);
 
         [OperationContract][WebInvoke]
         bool GetDeviceType(int ID, out DeviceType result);

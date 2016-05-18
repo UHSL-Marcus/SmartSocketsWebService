@@ -21,7 +21,7 @@ namespace WindowsFormsApplication1
             ServiceReference1.SmartSocketsWebServiceClient client = new
         ServiceReference1.SmartSocketsWebServiceClient();
 
-            //client.Endpoint.Contract.ProtectionLevel = System.Net.Security.ProtectionLevel.EncryptAndSign;
+            client.Endpoint.Contract.ProtectionLevel = System.Net.Security.ProtectionLevel.EncryptAndSign;
 
             
             //System.ServiceModel.Channels.Binding
@@ -29,14 +29,13 @@ namespace WindowsFormsApplication1
             client.ClientCredentials.UserName.UserName = "root";
             client.ClientCredentials.UserName.Password = "root";
 
-            ServiceReference1.Device[] devices;
+            ServiceReference1.Room room = new ServiceReference1.Room();
+            room.PropertyID = 3;
             string info = "";
 
-            if (client.GetAllDevices(out devices)) {
-                foreach (ServiceReference1.Device device in devices)
-                {
-                    info += device.DeviceID + "\n";
-                }
+            if (client.RemoveDeviceType(8))
+            {
+                info += "\ntrue";
             }
 
             infoBox.Text = info; 

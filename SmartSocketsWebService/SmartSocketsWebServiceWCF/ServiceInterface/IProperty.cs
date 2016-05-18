@@ -12,7 +12,11 @@ namespace SmartSocketsWebService
     public partial interface ISmartSocketsWebService
     {
         [OperationContract][WebInvoke]
-        bool SetNewProperty(Property property);
+        bool SetNewProperty(Property property, out string ID);
+
+        [OperationContract]
+        [WebInvoke]
+        bool RemoveProperty(int ID);
 
         [OperationContract][WebInvoke]
         bool GetProperty(int ID, out Property result);
