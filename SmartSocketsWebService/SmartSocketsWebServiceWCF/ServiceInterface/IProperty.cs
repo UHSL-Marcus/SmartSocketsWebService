@@ -16,6 +16,10 @@ namespace SmartSocketsWebService
 
         [OperationContract]
         [WebInvoke]
+        bool UpdateProperty(Property property);
+
+        [OperationContract]
+        [WebInvoke]
         bool RemoveProperty(int ID);
 
         [OperationContract][WebInvoke]
@@ -31,8 +35,8 @@ namespace SmartSocketsWebService
     public class Property
     {
         [DataMember]
-        public int PropertyID = -1;
+        public int? PropertyID;
         [DataMember]
-        public int OwnerID;
+        public int? OwnerID;
     }
 }

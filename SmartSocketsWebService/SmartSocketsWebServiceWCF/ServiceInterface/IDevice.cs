@@ -16,6 +16,11 @@ namespace SmartSocketsWebService
 
         [OperationContract]
         [WebInvoke]
+        bool UpdateDevice(Device device);
+
+
+        [OperationContract]
+        [WebInvoke]
         bool RemoveDevice(int ID);
 
         [OperationContract][WebInvoke]
@@ -32,10 +37,14 @@ namespace SmartSocketsWebService
     public class Device
     {
         [DataMember]
-        public int DeviceID = -1;
+        public int? DeviceID;
         [DataMember]
-        public int RoomID;
+        public int? RoomID;
         [DataMember]
-        public int DeviceTypeID;
+        public int? DeviceTypeID;
+        [DataMember]
+        public string DeviceName;
+        [DataMember]
+        public string[] Commands;
     }
 }

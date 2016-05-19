@@ -91,6 +91,9 @@
     <None Include="Service References\ServiceReference1\Start2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ServiceReference1\Start3.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\ServiceReference1\WindowsFormsApplication1.ServiceReference1.DataEntry.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

@@ -67,7 +67,10 @@ namespace SmartSocketsWebService
                 {
                     string s = reader.GetName(i);
                     FieldInfo field = ob.GetType().GetField(reader.GetName(i));
-                    field.SetValue(ob, reader[i]);
+                    if (field.FieldType == typeof(string[]))
+                        field.SetValue(ob, ((string)reader[i]).Split(','));
+                    else
+                        field.SetValue(ob, reader[i]);
                 }
 
                 returnList.Add(ob);
@@ -136,7 +139,7 @@ namespace SmartSocketsWebService
                     if (queryValues.Length < 1)
                     {
                         queryName += "(";
-                        queryValues += " values(";
+                        queryValues += " VALUES(";
                     }
 
                     queryName += fields[i].Name;
@@ -150,6 +153,8 @@ namespace SmartSocketsWebService
                         queryValues += ((DateTime)value).ToString("yyyy-MM-dd");
                     else if (value is int || value is string)
                         queryValues += value;
+                    else if (value is string[])
+                        queryValues += string.Join(",", value as string[]);
 
                     queryValues += "'";
 
@@ -178,6 +183,46 @@ namespace SmartSocketsWebService
             ID = reply.ToString();
 
             return success;
+
+        }
+
+        private bool SQL_doUpdate<TYPE>(TYPE ob)
+        {
+            Type type = typeof(TYPE);
+
+            string queryName = " UPDATE " + type.Name;
+            string queryValues = "";
+            string queryWhere = " WHERE " + type.Name + "ID='";
+
+
+            FieldInfo[] fields = type.GetFields();
+            for (int i = 0; i < fields.Length; i++)
+            {
+                object value = fields[i].GetValue(ob);
+
+                if (fields[i].Name.Equals(type.Name + "ID"))
+                    queryWhere += value + "'";
+                else if (value != null)
+                {
+                    if (queryValues.Length < 1)
+                        queryValues += " SET ";
+                    else queryValues += ",";
+
+                    queryValues += fields[i].Name + "='";
+
+                    if (value is DateTime)
+                        queryValues += ((DateTime)value).ToString("yyyy-MM-dd");
+                    else if (value is int || value is string)
+                        queryValues += value;
+                    else if (value is string[])
+                        queryValues += string.Join(",", value as string[]);
+
+                    queryValues += "'";
+
+                }
+            }
+
+            return SQL_doNonQuery(queryName + queryValues + queryWhere);
 
         }
 

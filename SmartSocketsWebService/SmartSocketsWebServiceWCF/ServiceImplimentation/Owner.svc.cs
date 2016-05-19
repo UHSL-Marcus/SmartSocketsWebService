@@ -17,6 +17,11 @@ namespace SmartSocketsWebService
             return SQL_doInsertReturnID(owner, out ID);
         }
 
+        public bool UpdateOwner(Owner owner)
+        {
+            return SQL_doUpdate(owner);
+        }
+
         public bool RemoveOwner(int ID)
         {
             return SQL_deleteEntryByID<Owner>(ID);

@@ -11,12 +11,12 @@ namespace SmartSocketsWebService
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "ISmartSocketsWebService" in both code and config file together.
     public partial interface ISmartSocketsWebService
     {
-        [OperationContract][WebInvoke]
+        /*[OperationContract][WebInvoke]
         bool SetNewPaymentLevel(PaymentLevel paymentLevel, out string ID);
 
         [OperationContract]
         [WebInvoke]
-        bool RemovePaymentLevel(int ID);
+        bool RemovePaymentLevel(int ID);*/
 
         [OperationContract][WebInvoke]
         bool GetPaymentLevel(int ID, out PaymentLevel result);
@@ -31,7 +31,7 @@ namespace SmartSocketsWebService
     public class PaymentLevel
     {
         [DataMember]
-        public int PaymentLevelID = -1;
+        public int? PaymentLevelID;
         [DataMember]
         public string Name;
     }

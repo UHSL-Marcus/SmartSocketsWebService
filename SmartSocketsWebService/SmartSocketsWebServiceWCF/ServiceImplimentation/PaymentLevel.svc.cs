@@ -12,14 +12,14 @@ namespace SmartSocketsWebService
     // NOTE: In order to launch WCF Test Client for testing this service, please select SmartSocketsWebService.svc or SmartSocketsWebService.svc.cs at the Solution Explorer and start debugging.
     public partial class SmartSocketsWebService : ISmartSocketsWebService
     {
-       public bool SetNewPaymentLevel(PaymentLevel paymentLevel, out string ID)
+       /*public bool SetNewPaymentLevel(PaymentLevel paymentLevel, out string ID)
         {
             return SQL_doInsertReturnID(paymentLevel, out ID);
         }
         public bool RemovePaymentLevel(int ID)
         {
             return SQL_deleteEntryByID<PaymentLevel>(ID);
-        }
+        }*/
 
 
         public bool GetPaymentLevel(int ID, out PaymentLevel result)

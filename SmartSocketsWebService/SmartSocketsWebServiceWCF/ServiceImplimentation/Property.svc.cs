@@ -17,6 +17,11 @@ namespace SmartSocketsWebService
             return SQL_doInsertReturnID(property, out ID);
         }
 
+        public bool UpdateProperty(Property property)
+        {
+            return SQL_doUpdate(property);
+        }
+
         public bool RemoveProperty(int ID)
         {
             return SQL_deleteEntryByID<Property>(ID);

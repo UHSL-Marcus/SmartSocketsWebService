@@ -62,6 +62,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdateDevice">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="device" nillable="true" type="q5:Device" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDeviceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateDeviceResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="RemoveDevice">
     <xs:complexType>
       <xs:sequence>
@@ -87,7 +101,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetDeviceResult" type="xs:boolean" />
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q5:Device" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q6:Device" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -100,36 +114,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetAllDevicesResult" type="xs:boolean" />
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q6:ArrayOfDevice" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SetNewDeviceType">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="deviceType" nillable="true" type="q7:DeviceType" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SetNewDeviceTypeResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="SetNewDeviceTypeResult" type="xs:boolean" />
-        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RemoveDeviceType">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ID" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RemoveDeviceTypeResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="RemoveDeviceTypeResult" type="xs:boolean" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q7:ArrayOfDevice" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -161,35 +146,6 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SetNewPaymentLevel">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="paymentLevel" nillable="true" type="q10:PaymentLevel" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SetNewPaymentLevelResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="SetNewPaymentLevelResult" type="xs:boolean" />
-        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RemovePaymentLevel">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="ID" type="xs:int" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="RemovePaymentLevelResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="RemovePaymentLevelResult" type="xs:boolean" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
   <xs:element name="GetPaymentLevel">
     <xs:complexType>
       <xs:sequence>
@@ -201,7 +157,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetPaymentLevelResult" type="xs:boolean" />
-        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q11:PaymentLevel" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q10:PaymentLevel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -214,14 +170,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetAllPaymentLevelsResult" type="xs:boolean" />
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q12:ArrayOfPaymentLevel" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q11:ArrayOfPaymentLevel" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SetNewProperty">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="property" nillable="true" type="q13:Property" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="property" nillable="true" type="q12:Property" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -230,6 +186,20 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="SetNewPropertyResult" type="xs:boolean" />
         <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateProperty">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="property" nillable="true" type="q13:Property" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePropertyResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdatePropertyResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -290,6 +260,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="UpdateRoom">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="room" nillable="true" type="q17:Room" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateRoomResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateRoomResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="RemoveRoom">
     <xs:complexType>
       <xs:sequence>
@@ -315,7 +299,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetRoomResult" type="xs:boolean" />
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q17:Room" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q18:Room" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -328,14 +312,14 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetAllRoomsResult" type="xs:boolean" />
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q18:ArrayOfRoom" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q19:ArrayOfRoom" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SetNewOwner">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="owner" nillable="true" type="q19:Owner" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="owner" nillable="true" type="q20:Owner" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -344,6 +328,20 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="SetNewOwnerResult" type="xs:boolean" />
         <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOwner">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="owner" nillable="true" type="q21:Owner" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateOwnerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateOwnerResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -372,7 +370,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetOwnerResult" type="xs:boolean" />
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q20:Owner" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q22:Owner" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -385,7 +383,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="GetAllOwnersResult" type="xs:boolean" />
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q21:ArrayOfOwner" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" minOccurs="0" name="result" nillable="true" type="q23:ArrayOfOwner" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

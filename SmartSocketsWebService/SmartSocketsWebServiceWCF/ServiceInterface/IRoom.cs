@@ -15,6 +15,9 @@ namespace SmartSocketsWebService
         bool SetNewRoom(Room room, out string ID);
 
         [OperationContract][WebInvoke]
+        bool UpdateRoom(Room room);
+
+        [OperationContract][WebInvoke]
         bool RemoveRoom(int ID);
 
         [OperationContract][WebInvoke]
@@ -30,9 +33,9 @@ namespace SmartSocketsWebService
     public class Room
     {
         [DataMember]
-        public int RoomID = -1;
+        public int? RoomID;
         [DataMember]
-        public int PropertyID;
+        public int? PropertyID;
         [DataMember]
         public string RoomName;
     }

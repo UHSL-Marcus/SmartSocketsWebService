@@ -51,6 +51,7 @@
       <xsd:import schemaLocation="https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" />
+      <xsd:import schemaLocation="https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ISmartSocketsWebService_AddDataEntry_InputMessage">
@@ -77,6 +78,12 @@
   <wsdl:message name="ISmartSocketsWebService_SetNewDevice_OutputMessage">
     <wsdl:part name="parameters" element="tns:SetNewDeviceResponse" />
   </wsdl:message>
+  <wsdl:message name="ISmartSocketsWebService_UpdateDevice_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDevice" />
+  </wsdl:message>
+  <wsdl:message name="ISmartSocketsWebService_UpdateDevice_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDeviceResponse" />
+  </wsdl:message>
   <wsdl:message name="ISmartSocketsWebService_RemoveDevice_InputMessage">
     <wsdl:part name="parameters" element="tns:RemoveDevice" />
   </wsdl:message>
@@ -95,18 +102,6 @@
   <wsdl:message name="ISmartSocketsWebService_GetAllDevices_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllDevicesResponse" />
   </wsdl:message>
-  <wsdl:message name="ISmartSocketsWebService_SetNewDeviceType_InputMessage">
-    <wsdl:part name="parameters" element="tns:SetNewDeviceType" />
-  </wsdl:message>
-  <wsdl:message name="ISmartSocketsWebService_SetNewDeviceType_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SetNewDeviceTypeResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISmartSocketsWebService_RemoveDeviceType_InputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveDeviceType" />
-  </wsdl:message>
-  <wsdl:message name="ISmartSocketsWebService_RemoveDeviceType_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RemoveDeviceTypeResponse" />
-  </wsdl:message>
   <wsdl:message name="ISmartSocketsWebService_GetDeviceType_InputMessage">
     <wsdl:part name="parameters" element="tns:GetDeviceType" />
   </wsdl:message>
@@ -118,18 +113,6 @@
   </wsdl:message>
   <wsdl:message name="ISmartSocketsWebService_GetAllDeviceTypes_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAllDeviceTypesResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISmartSocketsWebService_SetNewPaymentLevel_InputMessage">
-    <wsdl:part name="parameters" element="tns:SetNewPaymentLevel" />
-  </wsdl:message>
-  <wsdl:message name="ISmartSocketsWebService_SetNewPaymentLevel_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SetNewPaymentLevelResponse" />
-  </wsdl:message>
-  <wsdl:message name="ISmartSocketsWebService_RemovePaymentLevel_InputMessage">
-    <wsdl:part name="parameters" element="tns:RemovePaymentLevel" />
-  </wsdl:message>
-  <wsdl:message name="ISmartSocketsWebService_RemovePaymentLevel_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RemovePaymentLevelResponse" />
   </wsdl:message>
   <wsdl:message name="ISmartSocketsWebService_GetPaymentLevel_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPaymentLevel" />
@@ -148,6 +131,12 @@
   </wsdl:message>
   <wsdl:message name="ISmartSocketsWebService_SetNewProperty_OutputMessage">
     <wsdl:part name="parameters" element="tns:SetNewPropertyResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISmartSocketsWebService_UpdateProperty_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProperty" />
+  </wsdl:message>
+  <wsdl:message name="ISmartSocketsWebService_UpdateProperty_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePropertyResponse" />
   </wsdl:message>
   <wsdl:message name="ISmartSocketsWebService_RemoveProperty_InputMessage">
     <wsdl:part name="parameters" element="tns:RemoveProperty" />
@@ -173,6 +162,12 @@
   <wsdl:message name="ISmartSocketsWebService_SetNewRoom_OutputMessage">
     <wsdl:part name="parameters" element="tns:SetNewRoomResponse" />
   </wsdl:message>
+  <wsdl:message name="ISmartSocketsWebService_UpdateRoom_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRoom" />
+  </wsdl:message>
+  <wsdl:message name="ISmartSocketsWebService_UpdateRoom_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateRoomResponse" />
+  </wsdl:message>
   <wsdl:message name="ISmartSocketsWebService_RemoveRoom_InputMessage">
     <wsdl:part name="parameters" element="tns:RemoveRoom" />
   </wsdl:message>
@@ -196,6 +191,12 @@
   </wsdl:message>
   <wsdl:message name="ISmartSocketsWebService_SetNewOwner_OutputMessage">
     <wsdl:part name="parameters" element="tns:SetNewOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISmartSocketsWebService_UpdateOwner_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOwner" />
+  </wsdl:message>
+  <wsdl:message name="ISmartSocketsWebService_UpdateOwner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateOwnerResponse" />
   </wsdl:message>
   <wsdl:message name="ISmartSocketsWebService_RemoveOwner_InputMessage">
     <wsdl:part name="parameters" element="tns:RemoveOwner" />
@@ -232,6 +233,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/SetNewDevice" message="tns:ISmartSocketsWebService_SetNewDevice_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/SetNewDeviceResponse" message="tns:ISmartSocketsWebService_SetNewDevice_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateDevice">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/UpdateDevice" message="tns:ISmartSocketsWebService_UpdateDevice_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/UpdateDeviceResponse" message="tns:ISmartSocketsWebService_UpdateDevice_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RemoveDevice">
       <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/RemoveDevice" message="tns:ISmartSocketsWebService_RemoveDevice_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/RemoveDeviceResponse" message="tns:ISmartSocketsWebService_RemoveDevice_OutputMessage" />
@@ -244,14 +249,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/GetAllDevices" message="tns:ISmartSocketsWebService_GetAllDevices_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/GetAllDevicesResponse" message="tns:ISmartSocketsWebService_GetAllDevices_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SetNewDeviceType">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/SetNewDeviceType" message="tns:ISmartSocketsWebService_SetNewDeviceType_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/SetNewDeviceTypeResponse" message="tns:ISmartSocketsWebService_SetNewDeviceType_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RemoveDeviceType">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/RemoveDeviceType" message="tns:ISmartSocketsWebService_RemoveDeviceType_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/RemoveDeviceTypeResponse" message="tns:ISmartSocketsWebService_RemoveDeviceType_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetDeviceType">
       <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/GetDeviceType" message="tns:ISmartSocketsWebService_GetDeviceType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/GetDeviceTypeResponse" message="tns:ISmartSocketsWebService_GetDeviceType_OutputMessage" />
@@ -259,14 +256,6 @@
     <wsdl:operation name="GetAllDeviceTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/GetAllDeviceTypes" message="tns:ISmartSocketsWebService_GetAllDeviceTypes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/GetAllDeviceTypesResponse" message="tns:ISmartSocketsWebService_GetAllDeviceTypes_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SetNewPaymentLevel">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/SetNewPaymentLevel" message="tns:ISmartSocketsWebService_SetNewPaymentLevel_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/SetNewPaymentLevelResponse" message="tns:ISmartSocketsWebService_SetNewPaymentLevel_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RemovePaymentLevel">
-      <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/RemovePaymentLevel" message="tns:ISmartSocketsWebService_RemovePaymentLevel_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/RemovePaymentLevelResponse" message="tns:ISmartSocketsWebService_RemovePaymentLevel_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetPaymentLevel">
       <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/GetPaymentLevel" message="tns:ISmartSocketsWebService_GetPaymentLevel_InputMessage" />
@@ -279,6 +268,10 @@
     <wsdl:operation name="SetNewProperty">
       <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/SetNewProperty" message="tns:ISmartSocketsWebService_SetNewProperty_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/SetNewPropertyResponse" message="tns:ISmartSocketsWebService_SetNewProperty_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProperty">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/UpdateProperty" message="tns:ISmartSocketsWebService_UpdateProperty_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/UpdatePropertyResponse" message="tns:ISmartSocketsWebService_UpdateProperty_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RemoveProperty">
       <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/RemoveProperty" message="tns:ISmartSocketsWebService_RemoveProperty_InputMessage" />
@@ -296,6 +289,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/SetNewRoom" message="tns:ISmartSocketsWebService_SetNewRoom_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/SetNewRoomResponse" message="tns:ISmartSocketsWebService_SetNewRoom_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdateRoom">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/UpdateRoom" message="tns:ISmartSocketsWebService_UpdateRoom_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/UpdateRoomResponse" message="tns:ISmartSocketsWebService_UpdateRoom_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RemoveRoom">
       <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/RemoveRoom" message="tns:ISmartSocketsWebService_RemoveRoom_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/RemoveRoomResponse" message="tns:ISmartSocketsWebService_RemoveRoom_OutputMessage" />
@@ -311,6 +308,10 @@
     <wsdl:operation name="SetNewOwner">
       <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/SetNewOwner" message="tns:ISmartSocketsWebService_SetNewOwner_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/SetNewOwnerResponse" message="tns:ISmartSocketsWebService_SetNewOwner_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOwner">
+      <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/UpdateOwner" message="tns:ISmartSocketsWebService_UpdateOwner_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ISmartSocketsWebService/UpdateOwnerResponse" message="tns:ISmartSocketsWebService_UpdateOwner_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RemoveOwner">
       <wsdl:input wsaw:Action="http://tempuri.org/ISmartSocketsWebService/RemoveOwner" message="tns:ISmartSocketsWebService_RemoveOwner_InputMessage" />
@@ -364,6 +365,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateDevice">
+      <soap12:operation soapAction="http://tempuri.org/ISmartSocketsWebService/UpdateDevice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RemoveDevice">
       <soap12:operation soapAction="http://tempuri.org/ISmartSocketsWebService/RemoveDevice" style="document" />
       <wsdl:input>
@@ -391,24 +401,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SetNewDeviceType">
-      <soap12:operation soapAction="http://tempuri.org/ISmartSocketsWebService/SetNewDeviceType" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RemoveDeviceType">
-      <soap12:operation soapAction="http://tempuri.org/ISmartSocketsWebService/RemoveDeviceType" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetDeviceType">
       <soap12:operation soapAction="http://tempuri.org/ISmartSocketsWebService/GetDeviceType" style="document" />
       <wsdl:input>
@@ -420,24 +412,6 @@
     </wsdl:operation>
     <wsdl:operation name="GetAllDeviceTypes">
       <soap12:operation soapAction="http://tempuri.org/ISmartSocketsWebService/GetAllDeviceTypes" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SetNewPaymentLevel">
-      <soap12:operation soapAction="http://tempuri.org/ISmartSocketsWebService/SetNewPaymentLevel" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RemovePaymentLevel">
-      <soap12:operation soapAction="http://tempuri.org/ISmartSocketsWebService/RemovePaymentLevel" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -465,6 +439,15 @@
     </wsdl:operation>
     <wsdl:operation name="SetNewProperty">
       <soap12:operation soapAction="http://tempuri.org/ISmartSocketsWebService/SetNewProperty" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProperty">
+      <soap12:operation soapAction="http://tempuri.org/ISmartSocketsWebService/UpdateProperty" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -508,6 +491,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdateRoom">
+      <soap12:operation soapAction="http://tempuri.org/ISmartSocketsWebService/UpdateRoom" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RemoveRoom">
       <soap12:operation soapAction="http://tempuri.org/ISmartSocketsWebService/RemoveRoom" style="document" />
       <wsdl:input>
@@ -537,6 +529,15 @@
     </wsdl:operation>
     <wsdl:operation name="SetNewOwner">
       <soap12:operation soapAction="http://tempuri.org/ISmartSocketsWebService/SetNewOwner" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateOwner">
+      <soap12:operation soapAction="http://tempuri.org/ISmartSocketsWebService/UpdateOwner" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

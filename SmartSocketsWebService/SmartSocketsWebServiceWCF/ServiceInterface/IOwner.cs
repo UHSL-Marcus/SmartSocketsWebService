@@ -16,6 +16,11 @@ namespace SmartSocketsWebService
 
         [OperationContract]
         [WebInvoke]
+        bool UpdateOwner(Owner owner);
+
+
+        [OperationContract]
+        [WebInvoke]
         bool RemoveOwner(int ID);
 
         [OperationContract][WebInvoke]
@@ -31,9 +36,9 @@ namespace SmartSocketsWebService
     public class Owner
     {
         [DataMember]
-        public int OwnerID = -1;
+        public int? OwnerID;
         [DataMember]
-        public int PaymentLevelID;
+        public int? PaymentLevelID;
         [DataMember]
         public string Name;
     }

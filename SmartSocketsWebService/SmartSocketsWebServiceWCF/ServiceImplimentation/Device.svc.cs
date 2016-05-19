@@ -17,6 +17,11 @@ namespace SmartSocketsWebService
             return SQL_doInsertReturnID(device, out ID);
         }
 
+        public bool UpdateDevice(Device device)
+        {
+            return SQL_doUpdate(device);
+        }
+
         public bool RemoveDevice(int ID)
         {
             return SQL_deleteEntryByID<Device>(ID);

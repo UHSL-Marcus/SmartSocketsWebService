@@ -12,7 +12,7 @@ namespace SmartSocketsWebService
     // NOTE: In order to launch WCF Test Client for testing this service, please select SmartSocketsWebService.svc or SmartSocketsWebService.svc.cs at the Solution Explorer and start debugging.
     public partial class SmartSocketsWebService : ISmartSocketsWebService
     {
-       public bool SetNewDeviceType(DeviceType deviceType, out string ID)
+       /*public bool SetNewDeviceType(DeviceType deviceType, out string ID)
         {
             return SQL_doInsertReturnID(deviceType, out ID);
         }
@@ -20,7 +20,7 @@ namespace SmartSocketsWebService
         public bool RemoveDeviceType(int ID)
         {
             return SQL_deleteEntryByID<DeviceType>(ID);
-        }
+        }*/
 
         public bool GetDeviceType(int ID, out DeviceType result)
         {

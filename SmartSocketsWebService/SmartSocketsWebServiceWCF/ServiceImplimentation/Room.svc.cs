@@ -17,6 +17,11 @@ namespace SmartSocketsWebService
             return SQL_doInsertReturnID(room, out ID);
         }
 
+        public bool UpdateRoom(Room room)
+        {
+            return SQL_doUpdate(room);
+        }
+
         public bool RemoveRoom(int ID)
         {
             return SQL_deleteEntryByID<Room>(ID);

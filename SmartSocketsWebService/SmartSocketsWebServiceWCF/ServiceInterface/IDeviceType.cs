@@ -11,12 +11,12 @@ namespace SmartSocketsWebService
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "ISmartSocketsWebService" in both code and config file together.
     public partial interface ISmartSocketsWebService
     {
-        [OperationContract][WebInvoke]
+        /*[OperationContract][WebInvoke]
         bool SetNewDeviceType(DeviceType deviceType, out string ID);
 
         [OperationContract]
         [WebInvoke]
-        bool RemoveDeviceType(int ID);
+        bool RemoveDeviceType(int ID);*/
 
         [OperationContract][WebInvoke]
         bool GetDeviceType(int ID, out DeviceType result);
@@ -31,6 +31,8 @@ namespace SmartSocketsWebService
     public class DeviceType
     {
         [DataMember]
-        public int DeviceTypeID = -1;
+        public int? DeviceTypeID;
+        [DataMember]
+        public string DeviceTypeName;
     }
 }
