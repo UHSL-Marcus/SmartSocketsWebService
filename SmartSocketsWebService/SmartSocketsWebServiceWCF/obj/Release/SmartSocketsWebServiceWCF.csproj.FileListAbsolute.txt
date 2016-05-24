@@ -1,0 +1,13 @@
+C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\bin\SmartSocketsWebService.dll.config
+C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\bin\SmartSocketsWebService.dll
+C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\bin\SmartSocketsWebService.pdb
+C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\bin\MongoDB.Bson.dll
+C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\bin\MongoDB.Driver.Core.dll
+C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\bin\MongoDB.Driver.dll
+C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\bin\MongoDB.Bson.xml
+C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\bin\MongoDB.Driver.xml
+C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\obj\Release\SmartSocketsWebServiceWCF.csprojResolveAssemblyReference.cache
+C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\obj\Release\SmartSocketsWebService.Properties.Resources.resources
+C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\obj\Release\SmartSocketsWebServiceWCF.csproj.GenerateResource.Cache
+C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\obj\Release\SmartSocketsWebService.dll
+C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\obj\Release\SmartSocketsWebService.pdb

@@ -33,5 +33,16 @@ namespace SmartSocketsWebService.Properties {
                 return ((string)(this["Database"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=sashsql.herts.ac.uk;Initial Catalog=sssvc;Persist Security Info=True;" +
+            "User ID=sssvcuser;Password=Sssvcus3r")]
+        public string DatabaseOnline {
+            get {
+                return ((string)(this["DatabaseOnline"]));
+            }
+        }
     }
 }

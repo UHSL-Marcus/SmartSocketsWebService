@@ -40,6 +40,6 @@ namespace SmartSocketsWebService
         [DataMember]
         public int? PaymentLevelID;
         [DataMember]
-        public string Name;
+        public string OwnerName;
     }
 }

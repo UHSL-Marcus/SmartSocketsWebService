@@ -16,7 +16,8 @@ namespace SmartSocketsWebService
     public partial class SmartSocketsWebService : ISmartSocketsWebService
     {
 
-        SqlConnection sqlConnStateful = new SqlConnection(Properties.Settings.Default.Database.ToString());
+        //SqlConnection sqlConnStateful = new SqlConnection(Properties.Settings.Default.Database.ToString());
+        SqlConnection sqlConnStateful = new SqlConnection(Properties.Settings.Default.DatabaseOnline.ToString());
 
         private List<TYPE> SQl_getEntryByID<TYPE>(int ID)
         {

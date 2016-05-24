@@ -19,30 +19,47 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ServiceReference1.SmartSocketsWebServiceClient client = new
-        ServiceReference1.SmartSocketsWebServiceClient();
+            ServiceReferenceOnline.SmartSocketsWebServiceClient clientOnline = new
+        ServiceReferenceOnline.SmartSocketsWebServiceClient();
 
-            client.Endpoint.Contract.ProtectionLevel = System.Net.Security.ProtectionLevel.EncryptAndSign;
+            ServiceReference1.SmartSocketsWebServiceClient client = new
+                ServiceReference1.SmartSocketsWebServiceClient();
+
+            //client.Endpoint.Contract.ProtectionLevel = System.Net.Security.ProtectionLevel.EncryptAndSign;
 
 
             //System.ServiceModel.Channels.Binding
 
+            clientOnline.ClientCredentials.UserName.UserName = "root";
+            clientOnline.ClientCredentials.UserName.Password = "root";
+
             client.ClientCredentials.UserName.UserName = "root";
             client.ClientCredentials.UserName.Password = "root";
 
-            ServiceReference1.Device d = new ServiceReference1.Device();
-            d.Commands = new string[] { "temp", "temp2" };
-            d.DeviceName = "name";
-            d.DeviceTypeID = 1;
-            d.RoomID = 22;
+
+            ServiceReferenceOnline.Owner ownerOnline = new ServiceReferenceOnline.Owner();
+            ownerOnline.PaymentLevelID = 1;
+            ownerOnline.OwnerName = "newOwner";
             string info = "";
 
-            if (client.SetNewDevice(out info, d))
+            ServiceReference1.Owner owner = new ServiceReference1.Owner();
+            owner.PaymentLevelID = 1;
+            owner.OwnerName = "newOwner";
+
+
+            if (client.SetNewOwner(out info, owner))
             {
-                info += "\n true";
+                infoBox.Text += "\n Online true";
             }
 
-            infoBox.Text = info;
+            if (clientOnline.SetNewOwner(out info, ownerOnline))
+            {
+                infoBox.Text += "\n Online true";
+            }
+
+
+            clientOnline.Close();
+            client.Close();
         }
 
     }

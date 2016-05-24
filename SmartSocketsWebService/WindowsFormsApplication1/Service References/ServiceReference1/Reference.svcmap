@@ -18,15 +18,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="https://localhost/ServiceImplimentation/Start.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="https://localhost/ServiceImplimentation/Start.svc/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="SmartSocketsWebService.wsdl" MetadataType="Wsdl" ID="23f1c84a-a6d5-4d0d-b99a-d80030b35ae6" SourceId="1" SourceUrl="https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc?wsdl" />
-    <MetadataFile FileName="Start.disco" MetadataType="Disco" ID="b052fd63-58e4-4279-94a8-c00b781c3feb" SourceId="1" SourceUrl="https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc?disco" />
-    <MetadataFile FileName="Start2.xsd" MetadataType="Schema" ID="58aac44f-cbd1-4c8f-b943-2969cb818e87" SourceId="1" SourceUrl="https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc?xsd=xsd1" />
-    <MetadataFile FileName="Start.xsd" MetadataType="Schema" ID="afc71d2f-f4ff-4558-b401-db6b66aabf49" SourceId="1" SourceUrl="https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc?xsd=xsd0" />
-    <MetadataFile FileName="Start3.xsd" MetadataType="Schema" ID="f1aecd39-a4e5-4aed-9594-fd7825a08e60" SourceId="1" SourceUrl="https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc?xsd=xsd3" />
-    <MetadataFile FileName="Start1.xsd" MetadataType="Schema" ID="5f0ddeed-b7f2-4ed7-802b-087db225d19d" SourceId="1" SourceUrl="https://ent-ml15aaf-1.herts.ac.uk/ServiceImplimentation/Start.svc?xsd=xsd2" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="71ce00f4-7116-476b-a722-1d6ea4ae02e8" SourceId="1" SourceUrl="https://localhost/ServiceImplimentation/Start.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="f4e00d82-071b-497e-9c78-4ab301eaa7f5" SourceId="1" SourceUrl="https://localhost/ServiceImplimentation/Start.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="bb1a2180-28f8-4bb9-af8d-9041466d42ab" SourceId="1" SourceUrl="https://localhost/ServiceImplimentation/Start.svc/mex" />
+    <MetadataFile FileName="SmartSocketsWebService.xsd" MetadataType="Schema" ID="5ef332ad-3d9b-437e-9bf8-b661b2b493ee" SourceId="1" SourceUrl="https://localhost/ServiceImplimentation/Start.svc/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="b302b4c8-cbb2-4990-8e99-8b053b45b99a" SourceId="1" SourceUrl="https://localhost/ServiceImplimentation/Start.svc/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
