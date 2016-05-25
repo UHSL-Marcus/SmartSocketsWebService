@@ -16,8 +16,8 @@ namespace SmartSocketsWebService
     public partial class SmartSocketsWebService : ISmartSocketsWebService
     {
 
-        //SqlConnection sqlConnStateful = new SqlConnection(Properties.Settings.Default.Database.ToString());
-        SqlConnection sqlConnStateful = new SqlConnection(Properties.Settings.Default.DatabaseOnline.ToString());
+        //SqlConnection conn = new SqlConnection(Properties.Settings.Default.Database.ToString());
+        //SqlConnection conn = new SqlConnection(Properties.Settings.Default.DatabaseOnline.ToString());
 
         private List<TYPE> SQl_getEntryByID<TYPE>(int ID)
         {
@@ -39,15 +39,20 @@ namespace SmartSocketsWebService
 
         private DataTableReader SQL_getDataReader(string sql)
         {
-            SqlDataAdapter adapter = new SqlDataAdapter();
-            SqlCommand cmd = sqlConnStateful.CreateCommand();
-            cmd.CommandText = sql;
-            adapter.SelectCommand = cmd;
             DataSet dataSet = new DataSet();
+            SqlDataAdapter adapter = new SqlDataAdapter();
 
-            sqlConnStateful.Open();
-            adapter.Fill(dataSet);
-            sqlConnStateful.Close();
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.DatabaseOnline.ToString())) { 
+                
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = sql;
+                adapter.SelectCommand = cmd;
+                
+
+                conn.Open();
+                adapter.Fill(dataSet);
+
+            }
 
             return dataSet.CreateDataReader();
         }
@@ -109,13 +114,15 @@ namespace SmartSocketsWebService
         {
             bool success = false;
 
-            sqlConnStateful.Open();
-            SqlCommand cmd = new SqlCommand(sql, sqlConnStateful);
+            using (SqlConnection conn = new SqlConnection(Properties.Settings.Default.DatabaseOnline.ToString()))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand(sql, conn);
 
-            if (cmd.ExecuteNonQuery() != 0)
-                success = true;
+                if (cmd.ExecuteNonQuery() != 0)
+                    success = true;
 
-            sqlConnStateful.Close();
+            }
 
             return success;
 

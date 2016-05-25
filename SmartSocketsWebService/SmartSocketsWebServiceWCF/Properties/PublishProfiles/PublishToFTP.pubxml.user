@@ -20,7 +20,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/11/2016 14:48:51</publishTime>
     </File>
     <File Include="bin/SmartSocketsWebService.dll">
-      <publishTime>05/24/2016 11:18:29</publishTime>
+      <publishTime>05/25/2016 14:17:51</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>05/24/2016 09:51:07</publishTime>
@@ -56,7 +56,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/27/2016 10:08:11</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/24/2016 11:38:43</publishTime>
+      <publishTime>05/25/2016 14:17:52</publishTime>
     </File>
   </ItemGroup>
 </Project>
