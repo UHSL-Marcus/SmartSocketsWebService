@@ -1,10 +1,5 @@
-﻿using System;
+﻿using SQLControlsLib;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace SmartSocketsWebService
 {
@@ -12,34 +7,30 @@ namespace SmartSocketsWebService
     // NOTE: In order to launch WCF Test Client for testing this service, please select SmartSocketsWebService.svc or SmartSocketsWebService.svc.cs at the Solution Explorer and start debugging.
     public partial class SmartSocketsWebService : ISmartSocketsWebService
     {
-       /*public bool SetNewDeviceType(DeviceType deviceType, out string ID)
+       /*public bool SetNewDeviceType(DeviceType deviceType, out int? ID)
         {
-            return SQL_doInsertReturnID(deviceType, out ID);
+            return Set.doInsertReturnID(deviceType, out ID);
         }
 
         public bool RemoveDeviceType(int ID)
         {
-            return SQL_deleteEntryByID<DeviceType>(ID);
+            return Delete.doDeleteEntryByID<DeviceType, int>(ID)
         }*/
 
         public bool GetDeviceType(int ID, out DeviceType result)
         {
 
+            bool success = false;
             result = null;
-            List<DeviceType> list = SQl_getEntryByID<DeviceType>(ID);
+            List<DeviceType> list;
+            if (Get.doSelectByID(ID, out list))
+                if (list.Count == 1) { result = list[0]; success = true; }
 
-            if (list.Count != 1) return false;
-
-            result = list[0];
-
-            return true;
+            return success;
         }
         public bool GetAllDeviceTypes(out List<DeviceType> result)
         {
-            result = SQL_getAllEntries<DeviceType>();
-
-            if (result.Count > 0) return true;
-            return false;
+            return Get.doSelectAll(out result);
         }
     }
 }

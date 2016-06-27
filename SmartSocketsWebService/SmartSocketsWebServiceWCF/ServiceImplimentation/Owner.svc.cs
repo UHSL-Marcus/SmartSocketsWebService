@@ -1,10 +1,5 @@
-﻿using System;
+﻿using SQLControlsLib;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace SmartSocketsWebService
 {
@@ -12,39 +7,35 @@ namespace SmartSocketsWebService
     // NOTE: In order to launch WCF Test Client for testing this service, please select SmartSocketsWebService.svc or SmartSocketsWebService.svc.cs at the Solution Explorer and start debugging.
     public partial class SmartSocketsWebService : ISmartSocketsWebService
     {
-       public bool SetNewOwner(Owner owner, out string ID)
+       public bool SetNewOwner(Owner owner, out int? ID)
         {
-            return SQL_doInsertReturnID(owner, out ID);
+            return Set.doInsertReturnID(owner, out ID);
         }
 
         public bool UpdateOwner(Owner owner)
         {
-            return SQL_doUpdate(owner);
+            return Update.doUpdateByID(owner);
         }
 
         public bool RemoveOwner(int ID)
         {
-            return SQL_deleteEntryByID<Owner>(ID);
+            return Delete.doDeleteEntryByID<Owner, int>(ID);
         }
 
         public bool GetOwner(int ID, out Owner result)
         {
 
+            bool success = false;
             result = null;
-            List<Owner> list = SQl_getEntryByID<Owner>(ID);
+            List<Owner> list;
+            if (Get.doSelectByID(ID, out list))
+                if (list.Count == 1) { result = list[0]; success = true; }
 
-            if (list.Count != 1) return false;
-
-            result = list[0];
-
-            return true;
+            return success;
         }
         public bool GetAllOwners(out List<Owner> result)
         {
-            result = SQL_getAllEntries<Owner>();
-
-            if (result.Count > 0) return true;
-            return false;
+            return Get.doSelectAll(out result);
         }
     }
 }

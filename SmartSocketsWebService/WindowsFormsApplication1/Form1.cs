@@ -22,44 +22,23 @@ namespace WindowsFormsApplication1
             ServiceReferenceOnline.SmartSocketsWebServiceClient clientOnline = new
         ServiceReferenceOnline.SmartSocketsWebServiceClient();
 
-            ServiceReference1.SmartSocketsWebServiceClient client = new
-                ServiceReference1.SmartSocketsWebServiceClient();
-
-            //client.Endpoint.Contract.ProtectionLevel = System.Net.Security.ProtectionLevel.EncryptAndSign;
-
-
-            //System.ServiceModel.Channels.Binding
 
             clientOnline.ClientCredentials.UserName.UserName = "root";
             clientOnline.ClientCredentials.UserName.Password = "root";
-
-            client.ClientCredentials.UserName.UserName = "root";
-            client.ClientCredentials.UserName.Password = "root";
 
 
             ServiceReferenceOnline.Owner ownerOnline = new ServiceReferenceOnline.Owner();
             ownerOnline.PaymentLevelID = 1;
             ownerOnline.OwnerName = "newOwner";
-            string info = "";
 
-            ServiceReference1.Owner owner = new ServiceReference1.Owner();
-            owner.PaymentLevelID = 1;
-            owner.OwnerName = "newOwner";
-
-
-            if (client.SetNewOwner(out info, owner))
+            int? id;
+            if (clientOnline.SetNewOwner(out id, ownerOnline))
             {
-                infoBox.Text += "\n Online true";
-            }
-
-            if (clientOnline.SetNewOwner(out info, ownerOnline))
-            {
-                infoBox.Text += "\n Online true";
+                infoBox.Text += "\n Online true (" + id.Value + ")";
             }
 
 
             clientOnline.Close();
-            client.Close();
         }
 
     }

@@ -5,13 +5,12 @@ using System;
 using System.Collections.Generic;
 
 using System.Linq;
-using System.Reflection;
 
 
 namespace SmartSocketsWebService
 {
 
-    
+
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "SmartSocketsWebService" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select SmartSocketsWebService.svc or SmartSocketsWebService.svc.cs at the Solution Explorer and start debugging.
     public partial class SmartSocketsWebService : ISmartSocketsWebService
@@ -162,7 +161,7 @@ namespace SmartSocketsWebService
                 return bsonVal.AsString;
             else if (bsonVal.IsBsonArray)
             {
-                List<object> list = new List<object>();
+                List<object> list = new List<object(out result);
                 foreach(BsonValue bval in ((BsonArray)bsonVal).ToArray())
                     list.Add(MongoDB_ConvertFromBsonValue(bval, type.GetElementType()));
                 
@@ -179,7 +178,7 @@ namespace SmartSocketsWebService
 
         private TYPE MongoDB_BsonDocumentToObject<TYPE>(BsonDocument doc)
         {
-            TYPE ob = Activator.CreateInstance<TYPE>();
+            TYPE ob = Activator.CreateInstance<TYPE(out result);
             Type type = typeof(TYPE);
 
             FieldInfo[] fields = type.GetFields();

@@ -1,10 +1,5 @@
-﻿using System;
+﻿using SQLControlsLib;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace SmartSocketsWebService
 {
@@ -12,34 +7,30 @@ namespace SmartSocketsWebService
     // NOTE: In order to launch WCF Test Client for testing this service, please select SmartSocketsWebService.svc or SmartSocketsWebService.svc.cs at the Solution Explorer and start debugging.
     public partial class SmartSocketsWebService : ISmartSocketsWebService
     {
-       /*public bool SetNewPaymentLevel(PaymentLevel paymentLevel, out string ID)
+       /*public bool SetNewPaymentLevel(PaymentLevel paymentLevel, out int? ID)
         {
-            return SQL_doInsertReturnID(paymentLevel, out ID);
+            return Set.doInsertReturnID(paymentLevel, out ID);
         }
         public bool RemovePaymentLevel(int ID)
         {
-            return SQL_deleteEntryByID<PaymentLevel>(ID);
+            return Delete.doDeleteEntryByID<PaymentLevel, int>(ID)
         }*/
 
 
         public bool GetPaymentLevel(int ID, out PaymentLevel result)
         {
 
+            bool success = false;
             result = null;
-            List<PaymentLevel> list = SQl_getEntryByID<PaymentLevel>(ID);
+            List<PaymentLevel> list;
+            if (Get.doSelectByID(ID, out list))
+                if (list.Count == 1) { result = list[0]; success = true; }
 
-            if (list.Count != 1) return false;
-
-            result = list[0];
-
-            return true;
+            return success;
         }
         public bool GetAllPaymentLevels(out List<PaymentLevel> result)
         {
-            result = SQL_getAllEntries<PaymentLevel>();
-
-            if (result.Count > 0) return true;
-            return false;
+            return Get.doSelectAll(out result);
         }
     }
 }

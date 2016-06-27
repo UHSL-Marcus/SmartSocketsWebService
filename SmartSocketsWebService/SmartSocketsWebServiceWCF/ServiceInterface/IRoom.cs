@@ -1,10 +1,8 @@
-﻿using System;
+﻿using SQLControlsLib;
 using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
-using System.Text;
 
 namespace SmartSocketsWebService
 {
@@ -12,7 +10,7 @@ namespace SmartSocketsWebService
     public partial interface ISmartSocketsWebService
     {
         [OperationContract][WebInvoke]
-        bool SetNewRoom(Room room, out string ID);
+        bool SetNewRoom(Room room, out int? ID);
 
         [OperationContract][WebInvoke]
         bool UpdateRoom(Room room);
@@ -30,8 +28,9 @@ namespace SmartSocketsWebService
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
-    public class Room
+    public class Room : DatabaseTableObject
     {
+        [DatabaseID]
         [DataMember]
         public int? RoomID;
         [DataMember]

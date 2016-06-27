@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
-
-namespace SmartSocketsWebService
+﻿namespace SmartSocketsWebService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "SmartSocketsWebService" in code, svc and config file together.
     // NOTE: In order to launch WCF Test Client for testing this service, please select SmartSocketsWebService.svc or SmartSocketsWebService.svc.cs at the Solution Explorer and start debugging.
@@ -19,19 +8,19 @@ namespace SmartSocketsWebService
         //SqlConnection conn = new SqlConnection(Properties.Settings.Default.Database.ToString());
         //SqlConnection conn = new SqlConnection(Properties.Settings.Default.DatabaseOnline.ToString());
 
-        private List<TYPE> SQl_getEntryByID<TYPE>(int ID)
+        /*private List<TYPE> Get.doSelectByID<TYPE>(int ID)
         {
             Type type = typeof(TYPE);
             return SQL_getData<TYPE>("SELECT * FROM " + type.Name + " WHERE " + type.Name + "ID = '" + ID + "'");
         }
 
-        private List<TYPE> SQL_getAllEntries<TYPE>()
+        private List<TYPE> Get.doSelectAll<TYPE(out result)
         {
             Type type = typeof(TYPE);
             return SQL_getData<TYPE>("SELECT * FROM " + type.Name);
         }
 
-        private bool SQL_deleteEntryByID<TYPE>(int ID)
+        private bool Delete.doDeleteEntryByID<TYPE>(int ID)
         {
             Type type = typeof(TYPE);
             return SQL_doNonQuery("DELETE FROM " + type.Name + " WHERE " + type.Name + "ID = '" + ID + "'");
@@ -62,12 +51,12 @@ namespace SmartSocketsWebService
 
             DataTableReader reader = SQL_getDataReader(sql);
 
-            List<TYPE> returnList = new List<TYPE>();
+            List<TYPE> returnList = new List<TYPE(out result);
 
             while (reader.Read())
             {
 
-                TYPE ob = Activator.CreateInstance<TYPE>();
+                TYPE ob = Activator.CreateInstance<TYPE(out result);
 
                 for (int i = 0; i < reader.FieldCount; i++)
                 {
@@ -128,7 +117,7 @@ namespace SmartSocketsWebService
 
         }
 
-        private bool SQL_doInsertReturnID<TYPE>(TYPE ob, out string ID)
+        private bool Set.doInsertReturnID<TYPE>(TYPE ob, out int? ID)
         {
             Type type = typeof(TYPE);
 
@@ -194,7 +183,7 @@ namespace SmartSocketsWebService
 
         }
 
-        private bool SQL_doUpdate<TYPE>(TYPE ob)
+        private bool Update.doUpdateByID<TYPE>(TYPE ob)
         {
             Type type = typeof(TYPE);
 

@@ -185,12 +185,271 @@ namespace WindowsFormsApplication1.ServiceReferenceOnline {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Device", Namespace="http://schemas.datacontract.org/2004/07/SmartSocketsWebService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DatabaseTableObject", Namespace="http://schemas.datacontract.org/2004/07/SQLControlsLib")]
     [System.SerializableAttribute()]
-    public partial class Device : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WindowsFormsApplication1.ServiceReferenceOnline.DeviceType))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WindowsFormsApplication1.ServiceReferenceOnline.PaymentLevel))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WindowsFormsApplication1.ServiceReferenceOnline.Property))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WindowsFormsApplication1.ServiceReferenceOnline.Room))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WindowsFormsApplication1.ServiceReferenceOnline.Owner))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WindowsFormsApplication1.ServiceReferenceOnline.Device))]
+    public partial class DatabaseTableObject : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="DeviceType", Namespace="http://schemas.datacontract.org/2004/07/SmartSocketsWebService")]
+    [System.SerializableAttribute()]
+    public partial class DeviceType : WindowsFormsApplication1.ServiceReferenceOnline.DatabaseTableObject {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> DeviceTypeIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DeviceTypeNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> DeviceTypeID {
+            get {
+                return this.DeviceTypeIDField;
+            }
+            set {
+                if ((this.DeviceTypeIDField.Equals(value) != true)) {
+                    this.DeviceTypeIDField = value;
+                    this.RaisePropertyChanged("DeviceTypeID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string DeviceTypeName {
+            get {
+                return this.DeviceTypeNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DeviceTypeNameField, value) != true)) {
+                    this.DeviceTypeNameField = value;
+                    this.RaisePropertyChanged("DeviceTypeName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PaymentLevel", Namespace="http://schemas.datacontract.org/2004/07/SmartSocketsWebService")]
+    [System.SerializableAttribute()]
+    public partial class PaymentLevel : WindowsFormsApplication1.ServiceReferenceOnline.DatabaseTableObject {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> PaymentLevelIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> PaymentLevelID {
+            get {
+                return this.PaymentLevelIDField;
+            }
+            set {
+                if ((this.PaymentLevelIDField.Equals(value) != true)) {
+                    this.PaymentLevelIDField = value;
+                    this.RaisePropertyChanged("PaymentLevelID");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Property", Namespace="http://schemas.datacontract.org/2004/07/SmartSocketsWebService")]
+    [System.SerializableAttribute()]
+    public partial class Property : WindowsFormsApplication1.ServiceReferenceOnline.DatabaseTableObject {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> OwnerIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> PropertyIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> OwnerID {
+            get {
+                return this.OwnerIDField;
+            }
+            set {
+                if ((this.OwnerIDField.Equals(value) != true)) {
+                    this.OwnerIDField = value;
+                    this.RaisePropertyChanged("OwnerID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> PropertyID {
+            get {
+                return this.PropertyIDField;
+            }
+            set {
+                if ((this.PropertyIDField.Equals(value) != true)) {
+                    this.PropertyIDField = value;
+                    this.RaisePropertyChanged("PropertyID");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Room", Namespace="http://schemas.datacontract.org/2004/07/SmartSocketsWebService")]
+    [System.SerializableAttribute()]
+    public partial class Room : WindowsFormsApplication1.ServiceReferenceOnline.DatabaseTableObject {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> PropertyIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> RoomIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RoomNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> PropertyID {
+            get {
+                return this.PropertyIDField;
+            }
+            set {
+                if ((this.PropertyIDField.Equals(value) != true)) {
+                    this.PropertyIDField = value;
+                    this.RaisePropertyChanged("PropertyID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> RoomID {
+            get {
+                return this.RoomIDField;
+            }
+            set {
+                if ((this.RoomIDField.Equals(value) != true)) {
+                    this.RoomIDField = value;
+                    this.RaisePropertyChanged("RoomID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RoomName {
+            get {
+                return this.RoomNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RoomNameField, value) != true)) {
+                    this.RoomNameField = value;
+                    this.RaisePropertyChanged("RoomName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Owner", Namespace="http://schemas.datacontract.org/2004/07/SmartSocketsWebService")]
+    [System.SerializableAttribute()]
+    public partial class Owner : WindowsFormsApplication1.ServiceReferenceOnline.DatabaseTableObject {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> OwnerIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OwnerNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> PaymentLevelIDField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> OwnerID {
+            get {
+                return this.OwnerIDField;
+            }
+            set {
+                if ((this.OwnerIDField.Equals(value) != true)) {
+                    this.OwnerIDField = value;
+                    this.RaisePropertyChanged("OwnerID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string OwnerName {
+            get {
+                return this.OwnerNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OwnerNameField, value) != true)) {
+                    this.OwnerNameField = value;
+                    this.RaisePropertyChanged("OwnerName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> PaymentLevelID {
+            get {
+                return this.PaymentLevelIDField;
+            }
+            set {
+                if ((this.PaymentLevelIDField.Equals(value) != true)) {
+                    this.PaymentLevelIDField = value;
+                    this.RaisePropertyChanged("PaymentLevelID");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Device", Namespace="http://schemas.datacontract.org/2004/07/SmartSocketsWebService")]
+    [System.SerializableAttribute()]
+    public partial class Device : WindowsFormsApplication1.ServiceReferenceOnline.DatabaseTableObject {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string[] CommandsField;
@@ -206,16 +465,6 @@ namespace WindowsFormsApplication1.ServiceReferenceOnline {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> RoomIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string[] Commands {
@@ -281,352 +530,6 @@ namespace WindowsFormsApplication1.ServiceReferenceOnline {
                 }
             }
         }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="DeviceType", Namespace="http://schemas.datacontract.org/2004/07/SmartSocketsWebService")]
-    [System.SerializableAttribute()]
-    public partial class DeviceType : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> DeviceTypeIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DeviceTypeNameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> DeviceTypeID {
-            get {
-                return this.DeviceTypeIDField;
-            }
-            set {
-                if ((this.DeviceTypeIDField.Equals(value) != true)) {
-                    this.DeviceTypeIDField = value;
-                    this.RaisePropertyChanged("DeviceTypeID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DeviceTypeName {
-            get {
-                return this.DeviceTypeNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DeviceTypeNameField, value) != true)) {
-                    this.DeviceTypeNameField = value;
-                    this.RaisePropertyChanged("DeviceTypeName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="PaymentLevel", Namespace="http://schemas.datacontract.org/2004/07/SmartSocketsWebService")]
-    [System.SerializableAttribute()]
-    public partial class PaymentLevel : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> PaymentLevelIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> PaymentLevelID {
-            get {
-                return this.PaymentLevelIDField;
-            }
-            set {
-                if ((this.PaymentLevelIDField.Equals(value) != true)) {
-                    this.PaymentLevelIDField = value;
-                    this.RaisePropertyChanged("PaymentLevelID");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Property", Namespace="http://schemas.datacontract.org/2004/07/SmartSocketsWebService")]
-    [System.SerializableAttribute()]
-    public partial class Property : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> OwnerIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> PropertyIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> OwnerID {
-            get {
-                return this.OwnerIDField;
-            }
-            set {
-                if ((this.OwnerIDField.Equals(value) != true)) {
-                    this.OwnerIDField = value;
-                    this.RaisePropertyChanged("OwnerID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> PropertyID {
-            get {
-                return this.PropertyIDField;
-            }
-            set {
-                if ((this.PropertyIDField.Equals(value) != true)) {
-                    this.PropertyIDField = value;
-                    this.RaisePropertyChanged("PropertyID");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Room", Namespace="http://schemas.datacontract.org/2004/07/SmartSocketsWebService")]
-    [System.SerializableAttribute()]
-    public partial class Room : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> PropertyIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> RoomIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string RoomNameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> PropertyID {
-            get {
-                return this.PropertyIDField;
-            }
-            set {
-                if ((this.PropertyIDField.Equals(value) != true)) {
-                    this.PropertyIDField = value;
-                    this.RaisePropertyChanged("PropertyID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> RoomID {
-            get {
-                return this.RoomIDField;
-            }
-            set {
-                if ((this.RoomIDField.Equals(value) != true)) {
-                    this.RoomIDField = value;
-                    this.RaisePropertyChanged("RoomID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string RoomName {
-            get {
-                return this.RoomNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.RoomNameField, value) != true)) {
-                    this.RoomNameField = value;
-                    this.RaisePropertyChanged("RoomName");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Owner", Namespace="http://schemas.datacontract.org/2004/07/SmartSocketsWebService")]
-    [System.SerializableAttribute()]
-    public partial class Owner : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> OwnerIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OwnerNameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> PaymentLevelIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> OwnerID {
-            get {
-                return this.OwnerIDField;
-            }
-            set {
-                if ((this.OwnerIDField.Equals(value) != true)) {
-                    this.OwnerIDField = value;
-                    this.RaisePropertyChanged("OwnerID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OwnerName {
-            get {
-                return this.OwnerNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.OwnerNameField, value) != true)) {
-                    this.OwnerNameField = value;
-                    this.RaisePropertyChanged("OwnerName");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> PaymentLevelID {
-            get {
-                return this.PaymentLevelIDField;
-            }
-            set {
-                if ((this.PaymentLevelIDField.Equals(value) != true)) {
-                    this.PaymentLevelIDField = value;
-                    this.RaisePropertyChanged("PaymentLevelID");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -643,7 +546,7 @@ namespace WindowsFormsApplication1.ServiceReferenceOnline {
         bool GetAllDataEntires(out WindowsFormsApplication1.ServiceReferenceOnline.DataEntry[] result, string deviceID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/SetNewDevice", ReplyAction="http://tempuri.org/ISmartSocketsWebService/SetNewDeviceResponse")]
-        bool SetNewDevice(out string ID, WindowsFormsApplication1.ServiceReferenceOnline.Device device);
+        bool SetNewDevice(out System.Nullable<int> ID, WindowsFormsApplication1.ServiceReferenceOnline.Device device);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/UpdateDevice", ReplyAction="http://tempuri.org/ISmartSocketsWebService/UpdateDeviceResponse")]
         bool UpdateDevice(WindowsFormsApplication1.ServiceReferenceOnline.Device device);
@@ -670,7 +573,7 @@ namespace WindowsFormsApplication1.ServiceReferenceOnline {
         bool GetAllPaymentLevels(out WindowsFormsApplication1.ServiceReferenceOnline.PaymentLevel[] result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/SetNewProperty", ReplyAction="http://tempuri.org/ISmartSocketsWebService/SetNewPropertyResponse")]
-        bool SetNewProperty(out string ID, WindowsFormsApplication1.ServiceReferenceOnline.Property property);
+        bool SetNewProperty(out System.Nullable<int> ID, WindowsFormsApplication1.ServiceReferenceOnline.Property property);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/UpdateProperty", ReplyAction="http://tempuri.org/ISmartSocketsWebService/UpdatePropertyResponse")]
         bool UpdateProperty(WindowsFormsApplication1.ServiceReferenceOnline.Property property);
@@ -685,7 +588,7 @@ namespace WindowsFormsApplication1.ServiceReferenceOnline {
         bool GetAllProperties(out WindowsFormsApplication1.ServiceReferenceOnline.Property[] result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/SetNewRoom", ReplyAction="http://tempuri.org/ISmartSocketsWebService/SetNewRoomResponse")]
-        bool SetNewRoom(out string ID, WindowsFormsApplication1.ServiceReferenceOnline.Room room);
+        bool SetNewRoom(out System.Nullable<int> ID, WindowsFormsApplication1.ServiceReferenceOnline.Room room);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/UpdateRoom", ReplyAction="http://tempuri.org/ISmartSocketsWebService/UpdateRoomResponse")]
         bool UpdateRoom(WindowsFormsApplication1.ServiceReferenceOnline.Room room);
@@ -700,7 +603,7 @@ namespace WindowsFormsApplication1.ServiceReferenceOnline {
         bool GetAllRooms(out WindowsFormsApplication1.ServiceReferenceOnline.Room[] result);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/SetNewOwner", ReplyAction="http://tempuri.org/ISmartSocketsWebService/SetNewOwnerResponse")]
-        bool SetNewOwner(out string ID, WindowsFormsApplication1.ServiceReferenceOnline.Owner owner);
+        bool SetNewOwner(out System.Nullable<int> ID, WindowsFormsApplication1.ServiceReferenceOnline.Owner owner);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISmartSocketsWebService/UpdateOwner", ReplyAction="http://tempuri.org/ISmartSocketsWebService/UpdateOwnerResponse")]
         bool UpdateOwner(WindowsFormsApplication1.ServiceReferenceOnline.Owner owner);
@@ -754,7 +657,7 @@ namespace WindowsFormsApplication1.ServiceReferenceOnline {
             return base.Channel.GetAllDataEntires(out result, deviceID);
         }
         
-        public bool SetNewDevice(out string ID, WindowsFormsApplication1.ServiceReferenceOnline.Device device) {
+        public bool SetNewDevice(out System.Nullable<int> ID, WindowsFormsApplication1.ServiceReferenceOnline.Device device) {
             return base.Channel.SetNewDevice(out ID, device);
         }
         
@@ -790,7 +693,7 @@ namespace WindowsFormsApplication1.ServiceReferenceOnline {
             return base.Channel.GetAllPaymentLevels(out result);
         }
         
-        public bool SetNewProperty(out string ID, WindowsFormsApplication1.ServiceReferenceOnline.Property property) {
+        public bool SetNewProperty(out System.Nullable<int> ID, WindowsFormsApplication1.ServiceReferenceOnline.Property property) {
             return base.Channel.SetNewProperty(out ID, property);
         }
         
@@ -810,7 +713,7 @@ namespace WindowsFormsApplication1.ServiceReferenceOnline {
             return base.Channel.GetAllProperties(out result);
         }
         
-        public bool SetNewRoom(out string ID, WindowsFormsApplication1.ServiceReferenceOnline.Room room) {
+        public bool SetNewRoom(out System.Nullable<int> ID, WindowsFormsApplication1.ServiceReferenceOnline.Room room) {
             return base.Channel.SetNewRoom(out ID, room);
         }
         
@@ -830,7 +733,7 @@ namespace WindowsFormsApplication1.ServiceReferenceOnline {
             return base.Channel.GetAllRooms(out result);
         }
         
-        public bool SetNewOwner(out string ID, WindowsFormsApplication1.ServiceReferenceOnline.Owner owner) {
+        public bool SetNewOwner(out System.Nullable<int> ID, WindowsFormsApplication1.ServiceReferenceOnline.Owner owner) {
             return base.Channel.SetNewOwner(out ID, owner);
         }
         

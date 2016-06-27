@@ -1,10 +1,5 @@
-﻿using System;
+﻿using SQLControlsLib;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace SmartSocketsWebService
 {
@@ -12,39 +7,35 @@ namespace SmartSocketsWebService
     // NOTE: In order to launch WCF Test Client for testing this service, please select SmartSocketsWebService.svc or SmartSocketsWebService.svc.cs at the Solution Explorer and start debugging.
     public partial class SmartSocketsWebService : ISmartSocketsWebService
     {
-       public bool SetNewRoom(Room room, out string ID)
+       public bool SetNewRoom(Room room, out int? ID)
         {
-            return SQL_doInsertReturnID(room, out ID);
+            return Set.doInsertReturnID(room, out ID);
         }
 
         public bool UpdateRoom(Room room)
         {
-            return SQL_doUpdate(room);
+            return Update.doUpdateByID(room);
         }
 
         public bool RemoveRoom(int ID)
         {
-            return SQL_deleteEntryByID<Room>(ID);
+            return Delete.doDeleteEntryByID<Room, int>(ID);
         }
 
         public bool GetRoom(int ID, out Room result) {
 
+            bool success = false;
             result = null;
-            List<Room> list = SQl_getEntryByID<Room>(ID);
+            List<Room> list;
+            if (Get.doSelectByID(ID, out list))
+                if (list.Count == 1) { result = list[0]; success = true; }
 
-            if (list.Count != 1) return false;
-
-            result = list[0];
-
-            return true;
+            return success;
         }
 
         public bool GetAllRooms(out List<Room> result)
         {
-            result = SQL_getAllEntries<Room>();
-
-            if (result.Count > 0) return true;
-            return false;
+            return Get.doSelectAll(out result);
         }
 
     }

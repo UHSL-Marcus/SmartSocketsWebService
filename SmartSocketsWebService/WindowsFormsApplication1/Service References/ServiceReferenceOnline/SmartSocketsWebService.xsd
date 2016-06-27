@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/SmartSocketsWebService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import namespace="http://schemas.datacontract.org/2004/07/SQLControlsLib" />
   <xs:complexType name="DataEntry">
     <xs:sequence>
       <xs:element minOccurs="0" name="Data" nillable="true" type="tns:Data" />
@@ -25,13 +26,17 @@
   </xs:complexType>
   <xs:element name="ArrayOfDataEntry" nillable="true" type="tns:ArrayOfDataEntry" />
   <xs:complexType name="Device">
-    <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Commands" nillable="true" type="q1:ArrayOfstring" />
-      <xs:element minOccurs="0" name="DeviceID" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="DeviceName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DeviceTypeID" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="RoomID" nillable="true" type="xs:int" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/SQLControlsLib" base="q1:DatabaseTableObject">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Commands" nillable="true" type="q2:ArrayOfstring" />
+          <xs:element minOccurs="0" name="DeviceID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DeviceName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="DeviceTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RoomID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="Device" nillable="true" type="tns:Device" />
   <xs:complexType name="ArrayOfDevice">
@@ -41,10 +46,14 @@
   </xs:complexType>
   <xs:element name="ArrayOfDevice" nillable="true" type="tns:ArrayOfDevice" />
   <xs:complexType name="DeviceType">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="DeviceTypeID" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="DeviceTypeName" nillable="true" type="xs:string" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q3="http://schemas.datacontract.org/2004/07/SQLControlsLib" base="q3:DatabaseTableObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DeviceTypeID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="DeviceTypeName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="DeviceType" nillable="true" type="tns:DeviceType" />
   <xs:complexType name="ArrayOfDeviceType">
@@ -54,10 +63,14 @@
   </xs:complexType>
   <xs:element name="ArrayOfDeviceType" nillable="true" type="tns:ArrayOfDeviceType" />
   <xs:complexType name="PaymentLevel">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PaymentLevelID" nillable="true" type="xs:int" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q4="http://schemas.datacontract.org/2004/07/SQLControlsLib" base="q4:DatabaseTableObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentLevelID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="PaymentLevel" nillable="true" type="tns:PaymentLevel" />
   <xs:complexType name="ArrayOfPaymentLevel">
@@ -67,10 +80,14 @@
   </xs:complexType>
   <xs:element name="ArrayOfPaymentLevel" nillable="true" type="tns:ArrayOfPaymentLevel" />
   <xs:complexType name="Property">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="OwnerID" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="PropertyID" nillable="true" type="xs:int" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q5="http://schemas.datacontract.org/2004/07/SQLControlsLib" base="q5:DatabaseTableObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OwnerID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="PropertyID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="Property" nillable="true" type="tns:Property" />
   <xs:complexType name="ArrayOfProperty">
@@ -80,11 +97,15 @@
   </xs:complexType>
   <xs:element name="ArrayOfProperty" nillable="true" type="tns:ArrayOfProperty" />
   <xs:complexType name="Room">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="PropertyID" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="RoomID" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="RoomName" nillable="true" type="xs:string" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q6="http://schemas.datacontract.org/2004/07/SQLControlsLib" base="q6:DatabaseTableObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="PropertyID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RoomID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="RoomName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="Room" nillable="true" type="tns:Room" />
   <xs:complexType name="ArrayOfRoom">
@@ -94,11 +115,15 @@
   </xs:complexType>
   <xs:element name="ArrayOfRoom" nillable="true" type="tns:ArrayOfRoom" />
   <xs:complexType name="Owner">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="OwnerID" nillable="true" type="xs:int" />
-      <xs:element minOccurs="0" name="OwnerName" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="PaymentLevelID" nillable="true" type="xs:int" />
-    </xs:sequence>
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q7="http://schemas.datacontract.org/2004/07/SQLControlsLib" base="q7:DatabaseTableObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="OwnerID" nillable="true" type="xs:int" />
+          <xs:element minOccurs="0" name="OwnerName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PaymentLevelID" nillable="true" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
   <xs:element name="Owner" nillable="true" type="tns:Owner" />
   <xs:complexType name="ArrayOfOwner">

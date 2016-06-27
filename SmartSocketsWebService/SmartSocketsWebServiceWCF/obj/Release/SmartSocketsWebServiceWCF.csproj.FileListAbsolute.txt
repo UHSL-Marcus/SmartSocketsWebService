@@ -11,3 +11,5 @@ C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\
 C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\obj\Release\SmartSocketsWebServiceWCF.csproj.GenerateResource.Cache
 C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\obj\Release\SmartSocketsWebService.dll
 C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\obj\Release\SmartSocketsWebService.pdb
+C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\bin\SQLControlsLib.dll
+C:\Users\ML15AAF\Documents\GitHub\SmartSocketsWebService\SmartSocketsWebService\SmartSocketsWebServiceWCF\bin\SQLControlsLib.pdb

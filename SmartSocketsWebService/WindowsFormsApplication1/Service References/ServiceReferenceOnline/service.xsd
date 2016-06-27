@@ -58,7 +58,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="SetNewDeviceResult" type="xs:boolean" />
-        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -185,7 +185,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="SetNewPropertyResult" type="xs:boolean" />
-        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -256,7 +256,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="SetNewRoomResult" type="xs:boolean" />
-        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -327,7 +327,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="SetNewOwnerResult" type="xs:boolean" />
-        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ID" nillable="true" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

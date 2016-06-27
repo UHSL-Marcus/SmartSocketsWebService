@@ -25,6 +25,7 @@
     <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="d8ec78b8-492d-4bb5-8b56-673d9cb36644" SourceId="1" SourceUrl="https://mmtsnap.mmt.herts.ac.uk/sssvc/ServiceImplimentation/Start.svc/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="65610674-a152-414f-bc34-04b1f1c23d1d" SourceId="1" SourceUrl="https://mmtsnap.mmt.herts.ac.uk/sssvc/ServiceImplimentation/Start.svc/mex" />
     <MetadataFile FileName="SmartSocketsWebService.xsd" MetadataType="Schema" ID="59e7b9a3-9596-43c0-9704-b425efa3da10" SourceId="1" SourceUrl="https://mmtsnap.mmt.herts.ac.uk/sssvc/ServiceImplimentation/Start.svc/mex" />
+    <MetadataFile FileName="SQLControlsLib.xsd" MetadataType="Schema" ID="214c71a6-05f9-4919-80b2-57dd46c2a8dd" SourceId="1" SourceUrl="https://mmtsnap.mmt.herts.ac.uk/sssvc/ServiceImplimentation/Start.svc/mex" />
     <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="8fb9946c-ee42-402f-9b1a-bcd404d1eac8" SourceId="1" SourceUrl="https://mmtsnap.mmt.herts.ac.uk/sssvc/ServiceImplimentation/Start.svc/mex" />
   </Metadata>
   <Extensions>

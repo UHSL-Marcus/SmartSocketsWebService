@@ -8,7 +8,7 @@ namespace SmartSocketsWebService.Utils
     {
         public override void Validate(string userName, string password)
         {
-            if (userName != "root" && password != "root")
+            if (userName != "root" || password != "root")
                 throw new FaultException("Invalid user and/or password");
         }
     }
