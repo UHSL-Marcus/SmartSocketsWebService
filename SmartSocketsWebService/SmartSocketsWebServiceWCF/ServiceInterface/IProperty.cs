@@ -23,6 +23,10 @@ namespace SmartSocketsWebService
         [OperationContract][WebInvoke]
         bool GetProperty(int ID, out Property result);
 
+        [OperationContract]
+        [WebInvoke]
+        bool GetPropertyExists(int ID);
+
         [OperationContract][WebInvoke]
         bool GetAllProperties(out List<Property> result);
     }

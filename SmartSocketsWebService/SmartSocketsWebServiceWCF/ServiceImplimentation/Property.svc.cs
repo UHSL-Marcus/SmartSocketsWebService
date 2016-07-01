@@ -33,6 +33,11 @@ namespace SmartSocketsWebService
 
             return success;
         }
+
+        public bool GetPropertyExists(int ID)
+        {
+            return Get.doEntryExistsByID<Property, int>(ID);
+        }
         public bool GetAllProperties(out List<Property> result)
         {
             return Get.doSelectAll(out result);
